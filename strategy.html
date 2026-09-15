@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Reagan Events Website Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A;
+  --surface:#1A1A1A;
+  --surface-2:#262626;
+  --line:#2E2E2E;
+  --line-2:#424242;
+  --heading:#EDEDED;
+  --gold:#D4A85A;
+  --gold-hover:#EACD94;
+  --gold-focus:#B6862F;
+  --body:#B8B8B8;
+  --body-2:#989898;
+  --body-3:#797979;
+  --good:#8FA97E;
+  --bad:#A97E7E;
+  --serif:"PP Editorial New","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  /* Text sizes */
+  --step--2:.75rem;                                   /* 12px  marks, buttons */
+  --step--1:.8125rem;                                 /* 13px  labels, small text */
+  --step-0:.9375rem;                                  /* 15px  body (14px on phones) */
+
+  /* Heading scale: sizes grow smoothly from a 375px phone to a 1200px screen.
+     Ratio is 1.125 on phones, about 1.2 on tablets, 1.25 on desktop. */
+  --h1:clamp(1.5625rem,.966rem + 2.545vw,2.875rem);   /* 25–46px */
+  --h2:clamp(1.375rem,.949rem + 1.818vw,2.3125rem);   /* 22–37px */
+  --h3:clamp(1.25rem,.994rem + 1.091vw,1.8125rem);    /* 20–29px */
+  --h4:clamp(1.125rem,.983rem + .606vw,1.4375rem);    /* 18–23px */
+  --h5:clamp(1rem,.915rem + .364vw,1.1875rem);        /* 16–19px */
+  --h6:clamp(.875rem,.847rem + .121vw,.9375rem);      /* 14–15px */
+
+  --lh-tight:1.15;
+  --lh-snug:1.3;
+  --lh-body:1.7;
+
+  --sidebar:220px;
+  --mobile-nav:56px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--body);
+  font-family:var(--sans);
+  font-size:var(--step-0);
+  line-height:var(--lh-body);
+  padding:0 32px calc(96px + env(safe-area-inset-bottom,0px));
+}
+a{color:var(--gold)}
+a:hover{color:var(--gold-hover)}
+:focus-visible{outline:2px solid var(--gold-focus);outline-offset:3px}
+
+h1,h2,h3,h4,h5,h6{
+  font-family:var(--serif);
+  font-weight:400;
+  color:var(--heading);
+  line-height:var(--lh-snug);
+  margin:0 0 .6em;
+}
+h1{font-size:var(--h1);line-height:var(--lh-tight);letter-spacing:-.015em;margin-bottom:.4em}
+h2{font-size:var(--h2);line-height:var(--lh-tight);letter-spacing:-.01em;margin-bottom:.5em}
+h3{font-size:var(--h3)}
+h4{font-size:var(--h4)}
+h5{font-size:var(--h5)}
+h6{font-size:var(--h6)}
+:is(h1,h2,h3,h4,h5,h6) em{font-style:italic;color:var(--gold)}
+.label{font-family:var(--sans);font-weight:600;font-size:var(--step--1);letter-spacing:0;margin-bottom:12px}
+
+p{max-width:70ch;margin:0 0 14px}
+ul,ol{max-width:70ch;margin:0 0 14px;padding-left:20px}
+li{margin-bottom:9px}
+li::marker{color:var(--line-2)}
+strong{color:var(--heading);font-weight:600}
+
+/* Layout */
+.layout{
+  display:grid;
+  grid-template-columns:var(--sidebar) minmax(0,1fr);
+  gap:72px;
+  max-width:1160px;
+  margin:0 auto;
+}
+.sidebar{
+  position:sticky;
+  top:0;
+  align-self:start;
+  padding-block:calc(96px + env(safe-area-inset-top,0px)) 32px;
+}
+.sidebar ol{list-style:none;margin:0;padding:0}
+.sidebar li{margin:0}
+.sidebar a{
+  display:block;
+  padding:12px 0 12px 16px;
+  border-left:1px solid var(--line);
+  color:var(--body-2);
+  text-decoration:none;
+  font-size:var(--step--1);
+  line-height:var(--lh-snug);
+}
+.sidebar a:hover{color:var(--heading)}
+.sidebar a[aria-current="true"]{color:var(--heading);border-left-color:var(--gold)}
+main{max-width:800px;min-width:0}
+
+/* Intro */
+.intro{padding-block:calc(88px + env(safe-area-inset-top,0px)) 40px}
+.eyebrow{font-size:var(--step--1);color:var(--body-2);margin:0 0 14px}
+.lede{font-size:1.0625rem;color:var(--body)}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border:1px solid var(--line);
+  margin:28px 0 12px;
+}
+.stat{padding:18px 20px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:var(--h3);color:var(--heading);line-height:1.1}
+.stat span{font-size:var(--step--1);color:var(--body-2)}
+.fine{font-size:var(--step--1);color:var(--body-2)}
+
+/* Toggle all */
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 16px}
+.toolbar p{margin:0}
+.btn-secondary{
+  font-family:var(--sans);
+  font-size:var(--step--2);
+  font-weight:600;
+  letter-spacing:.2em;
+  line-height:1;
+  text-transform:uppercase;
+  background:var(--bg);
+  color:var(--heading);
+  border:1px solid var(--heading);
+  padding:14px 24px;
+  cursor:pointer;
+}
+.btn-secondary:hover{color:var(--gold-hover);border-color:var(--gold-hover)}
+.btn-secondary:focus-visible{color:var(--gold-hover);border-color:var(--gold-hover);text-decoration:underline;outline:0}
+
+/* Action item toggles */
+details.item{
+  background:var(--surface);
+  border:1px solid var(--line);
+  margin:0 0 16px;
+  scroll-margin-top:24px;
+}
+details.item>summary{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  column-gap:20px;
+  align-items:baseline;
+  padding:28px;
+  cursor:pointer;
+  list-style:none;
+}
+details.item>summary::-webkit-details-marker{display:none}
+details.item>summary:hover h2{color:var(--gold-hover)}
+.num{font-size:var(--step--1);font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+details.item>summary h2{margin:0;transition:color .15s}
+.dek{grid-column:2;margin:8px 0 0;color:var(--body);max-width:62ch}
+.chev{
+  grid-column:3;
+  grid-row:1;
+  align-self:center;
+  width:10px;
+  height:10px;
+  border-right:1.5px solid var(--gold);
+  border-bottom:1.5px solid var(--gold);
+  transform:rotate(45deg) translate(-3px,-3px);
+  transition:transform .2s;
+}
+details.item[open] .chev{transform:rotate(-135deg)}
+@media(prefers-reduced-motion:reduce){.chev,details.item>summary h2{transition:none}}
+.item-body{border-top:1px solid var(--line);padding:32px 28px 36px}
+.item-body>section+section{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.item-body section>h4{margin-top:32px}
+.item-body section>h3+h4,.item-body section>h3+.tip+h4{margin-top:0}
+
+/* Blocks inside items */
+.card{background:var(--bg);border:1px solid var(--line);padding:24px;margin:0 0 16px}
+.card>:last-child{margin-bottom:0}
+.callout{border-left:2px solid var(--gold);background:var(--surface-2);padding:18px 22px;margin:0 0 16px}
+.callout p:last-child{margin-bottom:0}
+.tip{border:1px dashed var(--line-2);padding:16px 20px;margin:0 0 16px;font-size:var(--step--1);color:var(--body)}
+.tip p{margin:0}
+.path{color:var(--heading);font-weight:600}
+
+ol.steps{counter-reset:step;list-style:none;padding:0;margin:0 0 16px;max-width:none}
+ol.steps>li{counter-increment:step;position:relative;padding-left:46px;margin-bottom:20px}
+ol.steps>li:last-child{margin-bottom:0}
+ol.steps>li::before{
+  content:counter(step);
+  position:absolute;
+  left:0;
+  top:0;
+  width:28px;
+  height:28px;
+  border:1px solid var(--line-2);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:var(--step--1);
+  font-weight:600;
+  color:var(--gold);
+  line-height:1;
+}
+ol.steps>li>strong{display:block;margin-bottom:2px}
+ol.steps ul{margin:8px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 16px}
+.chips li{margin:0;border:1px solid var(--line-2);padding:4px 12px;font-size:var(--step--1);color:var(--heading)}
+
+.table-wrap{overflow-x:auto;margin:0 0 16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:560px;font-size:var(--step--1)}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--body-2);background:var(--bg)}
+td{color:var(--body)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.low{color:var(--bad);font-weight:600}
+
+code{
+  font-family:var(--mono);
+  font-size:.86em;
+  background:var(--surface-2);
+  color:var(--heading);
+  padding:2px 6px;
+  border-radius:2px;
+  word-break:break-word;
+}
+.pattern{
+  display:block;
+  font-family:var(--mono);
+  font-size:var(--step-0);
+  color:var(--gold);
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  padding:16px 20px;
+  margin:0 0 16px;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.group+.group{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.ex{margin:0 0 10px;display:flex;gap:12px;align-items:baseline}
+.ex:last-child{margin-bottom:0}
+.mark{font-size:var(--step--2);font-weight:600;letter-spacing:.08em;flex:none;width:36px}
+.yes .mark{color:var(--good)}
+.no .mark{color:var(--bad)}
+.ex code{background:transparent;padding:0;color:var(--body);min-width:0}
+.ex.no code{color:var(--body-2)}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);margin:0;position:relative}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:12px;border:1px solid var(--line-2)}
+
+/* Tablet and phone: sidebar becomes a sticky bar across the top */
+@media(max-width:960px){
+  body{padding:0 20px 72px}
+  .layout{display:block}
+  .sidebar{
+    top:0;
+    z-index:10;
+    margin:0 -20px;
+    padding:env(safe-area-inset-top,0px) 20px 0;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .sidebar ol{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .sidebar ol::-webkit-scrollbar{display:none}
+  .sidebar a{
+    white-space:nowrap;
+    border-left:0;
+    border-bottom:2px solid transparent;
+    padding:0 12px;
+    height:var(--mobile-nav);
+    display:flex;
+    align-items:center;
+  }
+  .sidebar li:first-child a{padding-left:0}
+  .sidebar a[aria-current="true"]{border-bottom-color:var(--gold)}
+  .intro{padding-top:48px}
+  details.item{scroll-margin-top:calc(var(--mobile-nav) + 16px)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media(max-width:600px){
+  :root{--step-0:.875rem}
+  body{padding:0 16px 64px}
+  .sidebar{margin:0 -16px;padding-inline:16px}
+  details.item>summary{padding:20px;column-gap:14px}
+  .item-body{padding:24px 20px 28px}
+  .card{padding:18px}
+  .callout{padding:16px 18px}
+  .pattern{font-size:var(--step--1);padding:12px 14px}
+  ol.steps>li{padding-left:40px}
+  .ex{gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="sidebar">
+  <nav aria-label="Action items">
+    <ol>
+      <li><a href="#faq-page">Combine Into One FAQ Page</a></li>
+      <li><a href="#page-titles">Rewrite Top 5 Page Titles</a></li>
+      <li><a href="#images">Fix Image Names and Alt Text</a></li>
+    </ol>
+  </nav>
+</aside>
+
+<main>
+
+<header class="intro">
+  <p class="eyebrow">Reagan Events · September 2026</p>
+  <h1>Website Strategy</h1>
+  <p class="lede">Three changes to help more people find the Reagan Events website and click through to it. Open each one for why it matters and step-by-step instructions for Squarespace.</p>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><b>1,070</b><span>Clicks from Google</span></div>
+    <div class="stat" role="listitem"><b>66,800</b><span>Times the site showed up</span></div>
+    <div class="stat" role="listitem"><b>1.6%</b><span>Of people clicked</span></div>
+    <div class="stat" role="listitem"><b>14.1</b><span>Average spot in results</span></div>
+  </div>
+  <p class="fine">Google Search Console, June 14 to September 13, 2026.</p>
+</header>
+
+<div class="toolbar">
+  <p class="fine">Tip: click any title to open or close it.</p>
+  <button type="button" class="btn-secondary" id="toggle-all" aria-controls="items">Open all</button>
+</div>
+
+<div id="items">
+
+<!-- 1. FAQ page -->
+<details class="item" id="faq-page">
+  <summary>
+    <span class="num">01</span>
+    <h2>Combine Into One FAQ Page</h2>
+    <span class="chev" aria-hidden="true"></span>
+    <p class="dek">Turn the Weddings and Events menus into a single FAQ page, with a section for each dropdown item and a question you can open and close inside each one.</p>
+  </summary>
+  <div class="item-body">
+
+    <section>
+      <h3>Why It Matters</h3>
+      <p>As we discussed in our last meeting, visitors should not have to dig through two menus to get answers. One FAQ page puts everything in one place and is easier to keep up to date.</p>
+      <p>Once Reagan finishes the brand voice questionnaire, writing the answers for this page will be quick.</p>
+      <h4>Sections on the New Page</h4>
+      <p>Each item in the current dropdown menus becomes its own section:</p>
+      <h5 class="label">From Weddings</h5>
+      <ul class="chips">
+        <li>U.S. Weddings</li><li>Charleston</li><li>Kiawah Island</li><li>Italy</li><li>All Weddings</li>
+      </ul>
+      <h5 class="label">From Events</h5>
+      <ul class="chips">
+        <li>Event Planning</li><li>Event Design</li><li>Brand Events</li><li>Corporate Events</li><li>Private Events</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>How To Do It</h3>
+      <div class="callout">
+        <p><strong>Before you start:</strong> do not delete any of the current Weddings or Events pages. Some of them already bring in visitors from Google. The Kiawah Island page had 31 clicks in the last three months. If a page ever does need to go, set up a redirect first. The steps are in action item 02.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <strong>Create the page</strong>
+          In Squarespace, open <span class="path">Pages</span>. Click the <span class="path">+</span> next to <span class="path">Not Linked</span>, then choose a blank page. Name it <span class="path">FAQ</span>. Keeping it under Not Linked hides it from visitors while you work.
+        </li>
+        <li>
+          <strong>Add a section for each topic</strong>
+          Click <span class="path">Edit</span> on the page, then <span class="path">Add Section</span>. Add a text block with the topic name as a heading, like "Charleston Weddings." Repeat for each topic in the list above.
+        </li>
+        <li>
+          <strong>Add the questions</strong>
+          Inside a section, click <span class="path">Add Block</span> and choose <span class="path">Accordion</span>. For each question, type the question in the title field and the answer in the description field. Visitors will click a question to see its answer.
+        </li>
+        <li>
+          <strong>Set the page address and search details</strong>
+          Hover over the FAQ page in the Pages list and click the gear icon. On the <span class="path">General</span> tab, set the URL to <code>/faq</code>. On the <span class="path">SEO</span> tab, add a short title and description. Action item 02 explains how to write those.
+        </li>
+        <li>
+          <strong>Add it to the menu</strong>
+          When the page is ready, drag it from <span class="path">Not Linked</span> up into <span class="path">Main Navigation</span>. Check it on your phone as well as your computer.
+        </li>
+      </ol>
+    </section>
+
+  </div>
+</details>
+
+<!-- 2. Page titles -->
+<details class="item" id="page-titles">
+  <summary>
+    <span class="num">02</span>
+    <h2>Rewrite Top 5 Page Titles</h2>
+    <span class="chev" aria-hidden="true"></span>
+    <p class="dek">More people are seeing the site on Google, but fewer are clicking. Better titles and descriptions fix that without changing the pages themselves. Low risk and the fastest win.</p>
+  </summary>
+  <div class="item-body">
+
+    <section>
+      <h3>Why It Matters</h3>
+      <p>The title and short description are the first things people see in Google results. When a page shows up a lot but gets few clicks, the title and description are the problem, not the ranking. The homepage alone dropped 27% in clicks.</p>
+      <p>We keep the same page addresses and the same page text. Only the title and description change.</p>
+
+      <h4>The Top 5 Pages</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Page</th><th class="n">Clicks</th><th class="n">Times shown</th><th class="n">Click rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Homepage</td><td class="n">260</td><td class="n">6,544</td><td class="n">4.0%</td></tr>
+            <tr><td>The Dunlin wedding guide</td><td class="n">201</td><td class="n">2,622</td><td class="n">7.7%</td></tr>
+            <tr><td>Santa Barbara venues guide</td><td class="n">120</td><td class="n">14,943</td><td class="n low">0.8%</td></tr>
+            <tr><td>The Cooper wedding guide</td><td class="n">97</td><td class="n">1,212</td><td class="n">8.0%</td></tr>
+            <tr><td>Our Destination Planning Team</td><td class="n">38</td><td class="n">1,185</td><td class="n">3.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Worth Flagging</h4>
+      <div class="card">
+        <h5>Santa Barbara Is the Biggest Opportunity</h5>
+        <p>The Santa Barbara venues guide showed up 14,943 times and got only 120 clicks. That is under 1% on the most-seen page on the whole site. It is the strongest case for this rewrite.</p>
+      </div>
+      <div class="card">
+        <h5>There Are Two Cooper Guides</h5>
+        <p>Two Cooper guides live at nearly identical addresses. One ends in "anchor" and one ends in "address." They are competing with each other, splitting 97 clicks and 19 clicks. Check whether one should redirect to the other before launch. Steps are below.</p>
+      </div>
+      <div class="card">
+        <h5>The Brand Name Shows Up Twice</h5>
+        <p>Journal post titles currently end with the brand name twice, because Squarespace adds "REAGAN EVENTS" to every title automatically. For example, the Dunlin guide shows up in Google as:</p>
+        <p><code>The Dunlin Wedding Guide | Johns Island | Reagan Events — REAGAN EVENTS</code></p>
+        <p>That wastes space Google would otherwise use for words people are searching for.</p>
+      </div>
+    </section>
+
+    <section>
+      <h3>How To Write a Good Title and Description</h3>
+      <div class="card">
+        <h4 class="label">Titles</h4>
+        <ul>
+          <li>Keep it to about 55 characters. Google cuts off anything longer.</li>
+          <li>Start with the words people search for, like the venue name, city, and "wedding."</li>
+          <li>Say the brand name once at most, at the end.</li>
+          <li>Every page gets its own title. No two pages should match.</li>
+        </ul>
+        <h4 class="label">Descriptions</h4>
+        <ul>
+          <li>Keep it to about 150 characters.</li>
+          <li>Write one or two plain sentences about what the reader gets from the page.</li>
+          <li>Give them a reason to click, like insider venue notes or planning tips.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>How To Do It</h3>
+      <div class="tip">
+        <p>Squarespace moves its menus around from time to time. If something below looks different, search the setting name at support.squarespace.com.</p>
+      </div>
+
+      <h4>Fix the Repeated Brand Name (One Time)</h4>
+      <ol class="steps">
+        <li>
+          <strong>Open the search appearance settings</strong>
+          In Squarespace, go to <span class="path">Marketing</span>, then <span class="path">SEO</span>, then <span class="path">Search Appearance</span>.
+        </li>
+        <li>
+          <strong>Change the format for collection items</strong>
+          Journal posts count as collection items. Change their title format so the site name is not added a second time. Setting it to just <code>%i</code> uses each post's own title as written.
+        </li>
+        <li>
+          <strong>Save</strong>
+          Click <span class="path">Save</span>. Then make sure each new journal title you write ends with "Reagan Events" only if you want the brand included.
+        </li>
+      </ol>
+
+      <h4>Update the Homepage and Team Page</h4>
+      <ol class="steps">
+        <li>
+          <strong>Open the page settings</strong>
+          Go to <span class="path">Pages</span>. Hover over the page and click the gear icon.
+        </li>
+        <li>
+          <strong>Go to the SEO tab</strong>
+          Click <span class="path">SEO</span>. Type the new title in <span class="path">SEO Title</span> and the new description in <span class="path">SEO Description</span>. The preview shows roughly how it will look on Google.
+        </li>
+        <li>
+          <strong>Save</strong>
+          Click <span class="path">Save</span>. Do not change the URL field.
+        </li>
+      </ol>
+
+      <h4>Update the Journal Guides</h4>
+      <p>This covers The Dunlin, Santa Barbara, and The Cooper guides.</p>
+      <ol class="steps">
+        <li>
+          <strong>Open the journal</strong>
+          Go to <span class="path">Pages</span> and click the journal page. You will see a list of posts.
+        </li>
+        <li>
+          <strong>Open the post settings</strong>
+          Hover over the post, click the <span class="path">...</span> menu, and choose <span class="path">Settings</span>.
+        </li>
+        <li>
+          <strong>Update the SEO tab</strong>
+          Click <span class="path">SEO</span>, add the new title and description, and click <span class="path">Save</span>. Leave the post URL alone.
+        </li>
+      </ol>
+
+      <h4>Sort Out the Two Cooper Guides</h4>
+      <ol class="steps">
+        <li>
+          <strong>Compare the two posts</strong>
+          Open both guides side by side:
+          <ul>
+            <li><code>/wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-anchor</code> (97 clicks)</li>
+            <li><code>/wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-address</code> (19 clicks)</li>
+          </ul>
+          If they cover the same thing, keep the "anchor" one, since it gets more clicks. Copy anything useful from the "address" post into the "anchor" post first.
+        </li>
+        <li>
+          <strong>Take the extra post down without deleting it</strong>
+          In the journal, open the "address" post's settings and change it from <span class="path">Published</span> to <span class="path">Draft</span>. The redirect in the next step only works when nothing is live at the old address.
+        </li>
+        <li>
+          <strong>Add a redirect</strong>
+          Go to <span class="path">Settings</span>, then <span class="path">Developer Tools</span>, then <span class="path">URL Mappings</span>. Paste this on its own line, then click <span class="path">Save</span>:
+          <span class="pattern">/wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-address -&gt; /wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-anchor 301</span>
+          The "301" tells Google the move is permanent, so the old page's value passes to the one you kept.
+        </li>
+        <li>
+          <strong>Test it</strong>
+          Open the old "address" link in a private browser window. It should land on the "anchor" guide.
+        </li>
+      </ol>
+
+      <h4>Let Google Know</h4>
+      <ol class="steps">
+        <li>
+          <strong>Ask Google to look again</strong>
+          In Google Search Console, paste each updated page's full address into the search bar at the top. When the result loads, click <span class="path">Request Indexing</span>.
+        </li>
+        <li>
+          <strong>Check back in a few weeks</strong>
+          Google can take two to four weeks to show the new titles. Then open <span class="path">Performance</span> in Search Console and compare clicks for these five pages with the numbers above.
+        </li>
+      </ol>
+    </section>
+
+  </div>
+</details>
+
+<!-- 3. Images -->
+<details class="item" id="images">
+  <summary>
+    <span class="num">03</span>
+    <h2>Fix Image Names and Alt Text</h2>
+    <span class="chev" aria-hidden="true"></span>
+    <p class="dek">Name images clearly and describe them in plain words so Google can show them in image search. Brooke and Rob can take this on as their first task.</p>
+  </summary>
+  <div class="item-body">
+
+    <section>
+      <h3>Why It Matters</h3>
+      <p>Google Image search brought in only 16 clicks in total. For a business built on beautiful photos, that is almost nothing. Google cannot see a photo. It reads the file name and the alt text to understand what is in it.</p>
+      <p>Alt text is a short written description attached to an image. It also helps people who use screen readers.</p>
+    </section>
+
+    <section>
+      <h3>Writing Alt Text</h3>
+      <p>Alt text is one plain sentence describing what the image shows. Write it the way you would describe the photo to someone on the phone.</p>
+      <p>Cover three things when they apply: what it shows, where it is, and what kind of event it was.</p>
+
+      <div class="card">
+        <h4>Do's &amp; Don'ts</h4>
+        <div class="group">
+          <h5 class="label">Good Examples</h5>
+          <div class="ex yes"><span class="mark">Yes</span><code>Candlelit welcome dinner tablescape at Keswick Hall in Charlottesville</code></div>
+          <div class="ex yes"><span class="mark">Yes</span><code>Reception terrace overlooking the water at a wedding in Capri</code></div>
+          <div class="ex yes"><span class="mark">Yes</span><code>Hand-lettered place setting at a Charleston rehearsal dinner</code></div>
+        </div>
+        <div class="group">
+          <h5 class="label">What to Avoid</h5>
+          <div class="ex no"><span class="mark">No</span><code>wedding</code></div>
+          <div class="ex no"><span class="mark">No</span><code>Photo of a table</code></div>
+          <div class="ex no"><span class="mark">No</span><code>Best luxury destination wedding planner Charleston Italy events</code></div>
+          <div class="ex no"><span class="mark">No</span><code>Sarah and Michael's wedding, June 2025</code></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>The Rules</h4>
+        <ul>
+          <li>One sentence. Roughly six to fifteen words.</li>
+          <li>Sentence case. No need for a period at the end.</li>
+          <li>Do not start with "image of" or "photo of." That is already implied.</li>
+          <li>No client names. Use the venue, the city, or the type of event.</li>
+          <li>Never repeat the same alt text on two different images.</li>
+          <li>Purely decorative images, like a texture or a divider, can be left blank on purpose.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Images Already on the Site</h4>
+        <p>Older images with messy file names can stay as they are. Fix them by adding alt text instead.</p>
+        <div class="callout">
+          <p>Do not delete and re-upload an old image just to rename it. That breaks the existing link to the image and can cost the page search visibility it has already earned.</p>
+        </div>
+        <p>Start with the pages that matter most, in this order:</p>
+        <ol>
+          <li>Homepage</li>
+          <li>Portfolio and featured events</li>
+          <li>Service pages</li>
+          <li>Destination and location pages</li>
+          <li>Blog posts</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h3>Image Naming System</h3>
+      <p>Name every new image before it goes onto the site. Use this pattern:</p>
+      <span class="pattern">venue-city-event-type-detail.jpg</span>
+      <p>Not every image needs all four parts. Use what is true and skip the rest.</p>
+
+      <div class="card">
+        <h4>Do's &amp; Don'ts</h4>
+        <div class="group">
+          <h5 class="label">Good Examples</h5>
+          <div class="ex yes"><span class="mark">Yes</span><code>keswick-hall-charlottesville-welcome-dinner-tablescape.jpg</code></div>
+          <div class="ex yes"><span class="mark">Yes</span><code>capri-italy-wedding-reception-terrace.jpg</code></div>
+          <div class="ex yes"><span class="mark">Yes</span><code>charleston-rehearsal-dinner-place-setting.jpg</code></div>
+          <div class="ex yes"><span class="mark">Yes</span><code>ocean-club-bahamas-ceremony-aisle.jpg</code></div>
+        </div>
+        <div class="group">
+          <h5 class="label">What to Avoid</h5>
+          <div class="ex no"><span class="mark">No</span><code>IMG_4471.jpg</code></div>
+          <div class="ex no"><span class="mark">No</span><code>Screen Shot 2026-09-14 at 3.42.11 PM.png</code></div>
+          <div class="ex no"><span class="mark">No</span><code>final_FINAL_v3_use this one.jpg</code></div>
+          <div class="ex no"><span class="mark">No</span><code>luxury-wedding-planner-charleston-best-wedding-planner.jpg</code></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>The Formatting Rules</h4>
+        <ul>
+          <li>All lowercase.</li>
+          <li>Hyphens between words, never underscores or spaces.</li>
+          <li>No dates, photographer initials, or version numbers.</li>
+          <li>No client last names. Use the venue or the city instead.</li>
+          <li>Three to six words is the sweet spot.</li>
+          <li>Describe what is actually in the frame. Do not stack keywords.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>How To Do It in Squarespace</h3>
+      <h4>New Images</h4>
+      <ol class="steps">
+        <li>
+          <strong>Rename the file on your computer first</strong>
+          Squarespace keeps the file name you upload, so rename it before it goes on the site. On a Mac, click the file once, press <span class="path">Return</span>, and type the new name. On Windows, right-click the file and choose <span class="path">Rename</span>.
+        </li>
+        <li>
+          <strong>Check the file size</strong>
+          On a Mac, right-click the file and choose <span class="path">Get Info</span>. On Windows, right-click and choose <span class="path">Properties</span>. If it is over 500 KB, shrink it with a free tool like TinyJPG before uploading.
+        </li>
+        <li>
+          <strong>Upload and add alt text</strong>
+          Upload the image as usual. Then click the image on the page, click the pencil or gear icon, and type your sentence into the <span class="path">Alt Text</span> field. Click <span class="path">Save</span> on the page when you are done.
+        </li>
+      </ol>
+
+      <h4>Images Already on the Site</h4>
+      <ol class="steps">
+        <li>
+          <strong>Open the page in edit mode</strong>
+          Go to <span class="path">Pages</span>, open the page, and click <span class="path">Edit</span>. Work through the pages in the order listed above.
+        </li>
+        <li>
+          <strong>Add alt text to each image</strong>
+          Click each image, then the pencil or gear icon, and fill in the <span class="path">Alt Text</span> field. For images in a gallery, open the gallery and do this for each photo.
+        </li>
+        <li>
+          <strong>Save the page</strong>
+          Click <span class="path">Save</span> before moving on to the next page. Leave the file names as they are.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h3>Before You Upload</h3>
+      <ul class="checklist">
+        <li>File is named using the pattern, all lowercase with hyphens.</li>
+        <li>No client names anywhere in the file name or alt text.</li>
+        <li>Image is compressed. Aim for under 500 KB for most photos.</li>
+        <li>Alt text is written and describes what is actually in the frame.</li>
+        <li>Alt text is not a duplicate of another image on the same page.</li>
+        <li>The name and the alt text describe the same picture.</li>
+      </ul>
+    </section>
+
+  </div>
+</details>
+
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  var items=[].slice.call(document.querySelectorAll('details.item'));
+  var links=[].slice.call(document.querySelectorAll('.sidebar a'));
+  var toggleAll=document.getElementById('toggle-all');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setActive(id){
+    links.forEach(function(a){
+      var on=a.getAttribute('href')==='#'+id;
+      if(on){
+        a.setAttribute('aria-current','true');
+        // On tablets and phones the nav scrolls sideways: keep the active link visible
+        var bar=a.closest('ol');
+        if(bar.scrollWidth>bar.clientWidth) bar.scrollTo({left:a.parentNode.offsetLeft-bar.offsetLeft,behavior:reduce?'auto':'smooth'});
+      } else a.removeAttribute('aria-current');
+    });
+  }
+  function syncToggleAll(){
+    toggleAll.textContent=items.every(function(d){return d.open;})?'Close all':'Open all';
+  }
+
+  links.forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1);
+      var target=document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      target.open=true;
+      target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      history.replaceState(null,'','#'+id);
+      setActive(id);
+      target.querySelector('summary').focus({preventScroll:true});
+    });
+  });
+
+  toggleAll.addEventListener('click',function(){
+    var open=!items.every(function(d){return d.open;});
+    items.forEach(function(d){d.open=open;});
+    syncToggleAll();
+  });
+  items.forEach(function(d){d.addEventListener('toggle',syncToggleAll);});
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) setActive(en.target.id); });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    items.forEach(function(d){io.observe(d);});
+  }
+
+  var start=document.getElementById(location.hash.slice(1));
+  if(start && start.matches('details.item')){ start.open=true; setActive(start.id); }
+  syncToggleAll();
+})();
+</script>
+</body>
+</html>

@@ -26,6 +26,18 @@
   --serif:"PP Editorial New","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  /* Type scale: 1.25 ratio from a 15px base. The top two steps grow with the viewport. */
+  --step--2:.75rem;                                   /* 12px  labels */
+  --step--1:.8125rem;                                 /* 13px  small text */
+  --step-0:.9375rem;                                  /* 15px  body */
+  --step-1:1.1875rem;                                 /* 19px  h3 */
+  --step-2:clamp(1.375rem,1.2rem + .75vw,1.5rem);     /* 22–24px  h2 */
+  --step-3:clamp(1.75rem,1.3rem + 2vw,2.25rem);       /* 28–36px  h1 */
+
+  --lh-tight:1.15;
+  --lh-snug:1.3;
+  --lh-body:1.7;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -34,45 +46,18 @@ body{
   background:var(--bg);
   color:var(--body);
   font-family:var(--sans);
-  font-size:15px;
-  line-height:1.7;
+  font-size:var(--step-0);
+  line-height:var(--lh-body);
   padding:0 24px calc(96px + env(safe-area-inset-bottom,0px));
 }
 .wrap{max-width:780px;margin:0 auto}
-h1{
-  font-family:var(--serif);
-  color:var(--heading);
-  font-weight:400;
-  font-size:clamp(1.9rem,5vw,2.5rem);
-  line-height:1.15;
-  margin:0 0 18px;
-  letter-spacing:-.01em;
-}
-h2{
-  font-family:var(--serif);
-  color:var(--heading);
-  font-weight:400;
-  font-size:clamp(1.45rem,4vw,1.9rem);
-  line-height:1.25;
-  margin:0 0 18px;
-}
+h1,h2,h3,h4{color:var(--heading);margin:0}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+h1{font-size:var(--step-3);line-height:var(--lh-tight);letter-spacing:-.01em;margin-bottom:18px}
+h2{font-size:var(--step-2);line-height:var(--lh-snug);margin-bottom:16px}
+h3{font-size:var(--step-1);line-height:var(--lh-snug);margin-bottom:10px}
+h4{font-family:var(--sans);font-weight:600;font-size:var(--step--1);line-height:var(--lh-snug);margin-bottom:12px}
 h2 em{font-style:italic;color:var(--gold)}
-h3{
-  font-family:var(--serif);
-  color:var(--heading);
-  font-weight:400;
-  font-size:1.15rem;
-  line-height:1.3;
-  margin:0 0 10px;
-}
-h4{
-  font-family:var(--sans);
-  color:var(--heading);
-  font-weight:600;
-  font-size:.82rem;
-  line-height:1.4;
-  margin:0 0 12px;
-}
 .group+.group{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
 section{padding:52px 0;border-bottom:1px solid var(--line)}
 section:first-of-type{padding-top:calc(88px + env(safe-area-inset-top,0px))}
@@ -100,7 +85,7 @@ code{
 .pattern{
   display:block;
   font-family:var(--mono);
-  font-size:.95rem;
+  font-size:var(--step-0);
   color:var(--gold);
   background:var(--surface-2);
   border:1px solid var(--line);
@@ -111,14 +96,14 @@ code{
 }
 .ex{margin:0 0 10px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .ex:last-child{margin-bottom:0}
-.mark{font-size:.78rem;font-weight:600;letter-spacing:.08em;flex:none;width:44px}
+.mark{font-size:var(--step--2);font-weight:600;letter-spacing:.08em;flex:none;width:44px}
 .yes .mark{color:var(--good)}
 .no .mark{color:var(--bad)}
 .ex code{background:transparent;padding:0;color:var(--body)}
 .no .ex code,.ex.no code{color:var(--body-3)}
 .callout{
   border-left:2px solid var(--gold);
-  background:var(--surface-2);
+  background:var(--surface);
   padding:22px 26px;
   margin:0 0 16px;
 }
@@ -141,10 +126,11 @@ code{
   border:1px solid var(--line-2);
 }
 @media(max-width:600px){
-  body{font-size:14px;padding:0 18px 72px}
+  :root{--step-0:.875rem}                             /* 14px body on phones */
+  body{padding:0 18px 72px}
   .card{padding:20px}
   .callout{padding:18px 20px}
-  .pattern{font-size:.8rem;padding:14px 16px}
+  .pattern{font-size:var(--step--1);padding:14px 16px}
 }
 </style>
 </head>

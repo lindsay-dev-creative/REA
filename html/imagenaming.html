@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Image Naming and Alt Text Guide</title>
+<style>
+:root{
+  --bg:#0A0A0A;
+  --surface:#1A1A1A;
+  --surface-2:#262626;
+  --line:#2E2E2E;
+  --line-2:#424242;
+  --heading:#EDEDED;
+  --gold:#D4A85A;
+  --gold-hover:#EACD94;
+  --body:#B8B8B8;
+  --body-2:#989898;
+  --body-3:#797979;
+  --good:#8FA97E;
+  --bad:#A97E7E;
+  --serif:"PP Editorial New","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--body);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.7;
+  padding:0 24px calc(96px + env(safe-area-inset-bottom,0px));
+}
+.wrap{max-width:780px;margin:0 auto}
+header{padding:calc(88px + env(safe-area-inset-top,0px)) 0 48px;border-bottom:1px solid var(--line)}
+h1{
+  font-family:var(--serif);
+  color:var(--heading);
+  font-weight:400;
+  font-size:clamp(2rem,5.5vw,2.9rem);
+  line-height:1.15;
+  margin:0 0 18px;
+  letter-spacing:-.01em;
+}
+h1 em{font-style:italic;color:var(--gold)}
+.meta{color:var(--body-3);font-size:.82rem;line-height:1.9;margin:0}
+h2{
+  font-family:var(--serif);
+  color:var(--heading);
+  font-weight:400;
+  font-size:clamp(1.45rem,4vw,1.9rem);
+  line-height:1.25;
+  margin:0 0 18px;
+}
+h2 em{font-style:italic;color:var(--gold)}
+h3{
+  font-family:var(--serif);
+  color:var(--heading);
+  font-weight:400;
+  font-size:1.15rem;
+  line-height:1.3;
+  margin:0 0 10px;
+}
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+p{max-width:70ch;margin:0 0 14px}
+ul,ol{max-width:70ch;margin:0 0 14px;padding-left:20px}
+li{margin-bottom:9px}
+li::marker{color:var(--line-2)}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:26px;
+  margin:0 0 16px;
+}
+.card p:last-child,.card ul:last-child,.card ol:last-child{margin-bottom:0}
+code{
+  font-family:var(--mono);
+  font-size:.86em;
+  background:var(--surface-2);
+  color:var(--heading);
+  padding:3px 7px;
+  border-radius:2px;
+  word-break:break-word;
+}
+.pattern{
+  display:block;
+  font-family:var(--mono);
+  font-size:.95rem;
+  color:var(--gold);
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  padding:18px 20px;
+  margin:0 0 20px;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.ex{margin:0 0 10px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.ex:last-child{margin-bottom:0}
+.mark{font-size:.78rem;font-weight:600;letter-spacing:.08em;flex:none;width:44px}
+.yes .mark{color:var(--good)}
+.no .mark{color:var(--bad)}
+.ex code{background:transparent;padding:0;color:var(--body)}
+.no .ex code,.ex.no code{color:var(--body-3)}
+.callout{
+  border-left:2px solid var(--gold);
+  background:var(--surface);
+  padding:22px 26px;
+  margin:0 0 16px;
+}
+.callout p:last-child{margin-bottom:0}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{
+  padding:14px 0 14px 30px;
+  border-bottom:1px solid var(--line);
+  margin:0;
+  position:relative;
+}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:20px;
+  width:12px;
+  height:12px;
+  border:1px solid var(--line-2);
+}
+footer{padding:52px 0 0;color:var(--body-3);font-size:.8rem}
+@media(max-width:600px){
+  body{font-size:14px;padding:0 18px 72px}
+  .card{padding:20px}
+  .callout{padding:18px 20px}
+  .pattern{font-size:.8rem;padding:14px 16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Naming images so people<br><em>can find them</em></h1>
+  <p class="meta">
+    Reagan Events · Website guidance for the team<br>
+    Lindsay Dev Creative for Le Fleur Society<br>
+    REA_2026_WEB-image-naming-guide-v01
+  </p>
+</header>
+
+<section>
+  <h2>Image Naming <em>System</em></h2>
+  <p>Name every image before it goes onto the site. Use this pattern:</p>
+  <span class="pattern">venue-city-event-type-detail.jpg</span>
+  <p>Not every image needs all four parts. Use what is true and skip the rest.</p>
+
+  <div class="card">
+    <h3>Good examples</h3>
+    <div class="ex yes"><span class="mark">Yes</span><code>keswick-hall-charlottesville-welcome-dinner-tablescape.jpg</code></div>
+    <div class="ex yes"><span class="mark">Yes</span><code>capri-italy-wedding-reception-terrace.jpg</code></div>
+    <div class="ex yes"><span class="mark">Yes</span><code>charleston-rehearsal-dinner-place-setting.jpg</code></div>
+    <div class="ex yes"><span class="mark">Yes</span><code>ocean-club-bahamas-ceremony-aisle.jpg</code></div>
+  </div>
+
+  <div class="card">
+    <h3>What to avoid</h3>
+    <div class="ex no"><span class="mark">No</span><code>IMG_4471.jpg</code></div>
+    <div class="ex no"><span class="mark">No</span><code>Screen Shot 2026-09-14 at 3.42.11 PM.png</code></div>
+    <div class="ex no"><span class="mark">No</span><code>final_FINAL_v3_use this one.jpg</code></div>
+    <div class="ex no"><span class="mark">No</span><code>luxury-wedding-planner-charleston-best-wedding-planner.jpg</code></div>
+  </div>
+
+  <div class="card">
+    <h3>The formatting rules</h3>
+    <ul>
+      <li>All lowercase.</li>
+      <li>Hyphens between words, never underscores or spaces.</li>
+      <li>No dates, photographer initials, or version numbers.</li>
+      <li>No client last names. Use the venue or the city instead.</li>
+      <li>Three to six words is the sweet spot.</li>
+      <li>Describe what is actually in the frame. Do not stack keywords.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Writing <em>alt text</em></h2>
+  <p>Alt text is one plain sentence describing what the image shows. Write it the way you would describe the photo to someone on the phone.</p>
+  <p>Cover three things when they apply: what it shows, where it is, and what kind of event it was.</p>
+
+  <div class="card">
+    <h3>Good examples</h3>
+    <div class="ex yes"><span class="mark">Yes</span><code>Candlelit welcome dinner tablescape at Keswick Hall in Charlottesville</code></div>
+    <div class="ex yes"><span class="mark">Yes</span><code>Reception terrace overlooking the water at a wedding in Capri</code></div>
+    <div class="ex yes"><span class="mark">Yes</span><code>Hand-lettered place setting at a Charleston rehearsal dinner</code></div>
+  </div>
+
+  <div class="card">
+    <h3>What to avoid</h3>
+    <div class="ex no"><span class="mark">No</span><code>wedding</code></div>
+    <div class="ex no"><span class="mark">No</span><code>Photo of a table</code></div>
+    <div class="ex no"><span class="mark">No</span><code>Best luxury destination wedding planner Charleston Italy events</code></div>
+    <div class="ex no"><span class="mark">No</span><code>Sarah and Michael's wedding, June 2025</code></div>
+  </div>
+
+  <div class="card">
+    <h3>The rules</h3>
+    <ul>
+      <li>One sentence. Roughly six to fifteen words.</li>
+      <li>Sentence case. No need for a period at the end.</li>
+      <li>Do not start with "image of" or "photo of." That is already implied.</li>
+      <li>No client names. Use the venue, the city, or the type of event.</li>
+      <li>Never repeat the same alt text on two different images.</li>
+      <li>Purely decorative images, like a texture or a divider, can be left blank on purpose.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Step 2: <em>Alt text</em></h2>
+  <p>Add alt text to them instead, starting with the pages that matter most.</p>
+  <p>Work through the backlog in this order: homepage, portfolio and featured events, service pages, destination and location pages, then blog posts.</p>
+  <div class="callout">
+    <p>Do not delete and re-upload old images to fix a file name. That breaks the existing link to the image and can cost search visibility the page has already earned. Leave them in place.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Before you <em>upload</em></h2>
+  <ul class="checklist">
+    <li>File is named using the pattern, all lowercase with hyphens.</li>
+    <li>No client names anywhere in the file name or alt text.</li>
+    <li>Image is compressed. Aim for under 500kb for most photos.</li>
+    <li>Alt text is written and describes what is actually in the frame.</li>
+    <li>Alt text is not a duplicate of another image on the same page.</li>
+    <li>The name and the alt text describe the same picture.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Questions on any of this go to Jill, who will route them.</p>
+</footer>
+
+</div>
+</body>
+</html>

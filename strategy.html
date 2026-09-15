@@ -99,6 +99,8 @@ strong{color:var(--heading);font-weight:600}
   position:sticky;
   top:0;
   align-self:start;
+  max-height:100vh;
+  overflow-y:auto;
   padding-block:calc(96px + env(safe-area-inset-top,0px)) 32px;
 }
 .sidebar ol{list-style:none;margin:0;padding:0}
@@ -120,15 +122,9 @@ main{max-width:800px;min-width:0}
 .intro{padding-block:calc(88px + env(safe-area-inset-top,0px)) 40px}
 .eyebrow{font-size:var(--step--1);color:var(--body-2);margin:0 0 14px}
 .lede{font-size:1.0625rem;color:var(--body)}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  border:1px solid var(--line);
-  margin:28px 0 12px;
-}
-.stat{padding:18px 20px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0}
-.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:var(--h3);color:var(--heading);line-height:1.1}
+.side-stats{margin-top:40px;padding-left:16px;border-left:1px solid var(--line)}
+.stats{display:grid;gap:18px;margin:0 0 16px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:var(--h4);color:var(--heading);line-height:1.1}
 .stat span{font-size:var(--step--1);color:var(--body-2)}
 .fine{font-size:var(--step--1);color:var(--body-2)}
 
@@ -160,7 +156,7 @@ details.item{
 }
 details.item>summary{
   display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
+  grid-template-columns:minmax(0,1fr) auto;
   column-gap:20px;
   align-items:baseline;
   padding:28px;
@@ -168,12 +164,11 @@ details.item>summary{
   list-style:none;
 }
 details.item>summary::-webkit-details-marker{display:none}
-details.item>summary:hover h2{color:var(--gold-hover)}
-.num{font-size:var(--step--1);font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-details.item>summary h2{margin:0;transition:color .15s}
-.dek{grid-column:2;margin:8px 0 0;color:var(--body);max-width:62ch}
+details.item>summary:hover h3{color:var(--gold-hover)}
+details.item>summary h3{margin:0;transition:color .15s}
+.dek{grid-column:1;margin:8px 0 0;color:var(--body);max-width:62ch}
 .chev{
-  grid-column:3;
+  grid-column:2;
   grid-row:1;
   align-self:center;
   width:10px;
@@ -184,11 +179,11 @@ details.item>summary h2{margin:0;transition:color .15s}
   transition:transform .2s;
 }
 details.item[open] .chev{transform:rotate(-135deg)}
-@media(prefers-reduced-motion:reduce){.chev,details.item>summary h2{transition:none}}
+@media(prefers-reduced-motion:reduce){.chev,details.item>summary h3{transition:none}}
 .item-body{border-top:1px solid var(--line);padding:32px 28px 36px}
 .item-body>section+section{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
-.item-body section>h4{margin-top:32px}
-.item-body section>h3+h4,.item-body section>h3+.tip+h4{margin-top:0}
+.item-body section>h5{margin-top:32px}
+.item-body section>h4+h5,.item-body section>h4+.tip+h5{margin-top:0}
 
 /* Blocks inside items */
 .card{background:var(--bg);border:1px solid var(--line);padding:24px;margin:0 0 16px}
@@ -270,15 +265,21 @@ code{
 /* Tablet and phone: sidebar becomes a sticky bar across the top */
 @media(max-width:960px){
   body{padding:0 20px 72px}
-  .layout{display:block}
-  .sidebar{
+  .layout{display:flex;flex-direction:column}
+  .sidebar{display:contents}
+  .side-nav{
+    position:sticky;
     top:0;
     z-index:10;
+    order:0;
     margin:0 -20px;
     padding:env(safe-area-inset-top,0px) 20px 0;
     background:var(--bg);
     border-bottom:1px solid var(--line);
   }
+  main{order:1}
+  .side-stats{order:2;margin:48px 0 0;padding:28px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sidebar ol{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
   .sidebar ol::-webkit-scrollbar{display:none}
   .sidebar a{
@@ -294,14 +295,11 @@ code{
   .sidebar a[aria-current="true"]{border-bottom-color:var(--gold)}
   .intro{padding-top:48px}
   details.item{scroll-margin-top:calc(var(--mobile-nav) + 16px)}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stat:nth-child(3){border-left:0}
-  .stat:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media(max-width:600px){
   :root{--step-0:.875rem}
   body{padding:0 16px 64px}
-  .sidebar{margin:0 -16px;padding-inline:16px}
+  .side-nav{margin:0 -16px;padding-inline:16px}
   details.item>summary{padding:20px;column-gap:14px}
   .item-body{padding:24px 20px 28px}
   .card{padding:18px}
@@ -316,13 +314,22 @@ code{
 <div class="layout">
 
 <aside class="sidebar">
-  <nav aria-label="Action items">
+  <nav class="side-nav" aria-label="Action items">
     <ol>
       <li><a href="#faq-page">Combine Into One FAQ Page</a></li>
       <li><a href="#page-titles">Rewrite Top 5 Page Titles</a></li>
       <li><a href="#images">Fix Image Names and Alt Text</a></li>
     </ol>
   </nav>
+  <div class="side-stats">
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>1,070</b><span>Clicks from Google</span></div>
+      <div class="stat" role="listitem"><b>66,800</b><span>Times the site showed up</span></div>
+      <div class="stat" role="listitem"><b>1.6%</b><span>Of people clicked</span></div>
+      <div class="stat" role="listitem"><b>14.1</b><span>Average spot in results</span></div>
+    </div>
+    <p class="fine">Google Search Console, June 14 to September 13, 2026.</p>
+  </div>
 </aside>
 
 <main>
@@ -332,17 +339,9 @@ code{
   <h1>Website Strategy</h1>
   <p class="lede">Three changes to help more people find the Reagan Events website and click through to it. Open each one for why it matters and step-by-step instructions for Squarespace.</p>
 
-  <div class="stats" role="list">
-    <div class="stat" role="listitem"><b>1,070</b><span>Clicks from Google</span></div>
-    <div class="stat" role="listitem"><b>66,800</b><span>Times the site showed up</span></div>
-    <div class="stat" role="listitem"><b>1.6%</b><span>Of people clicked</span></div>
-    <div class="stat" role="listitem"><b>14.1</b><span>Average spot in results</span></div>
-  </div>
-  <p class="fine">Google Search Console, June 14 to September 13, 2026.</p>
 </header>
 
 <div class="toolbar">
-  <p class="fine">Tip: click any title to open or close it.</p>
   <button type="button" class="btn-secondary" id="toggle-all" aria-controls="items">Open all</button>
 </div>
 
@@ -351,31 +350,30 @@ code{
 <!-- 1. FAQ page -->
 <details class="item" id="faq-page">
   <summary>
-    <span class="num">01</span>
-    <h2>Combine Into One FAQ Page</h2>
+    <h3>Combine Into One FAQ Page</h3>
     <span class="chev" aria-hidden="true"></span>
     <p class="dek">Turn the Weddings and Events menus into a single FAQ page, with a section for each dropdown item and a question you can open and close inside each one.</p>
   </summary>
   <div class="item-body">
 
     <section>
-      <h3>Why It Matters</h3>
+      <h4>Why It Matters</h4>
       <p>As we discussed in our last meeting, visitors should not have to dig through two menus to get answers. One FAQ page puts everything in one place and is easier to keep up to date.</p>
       <p>Once Reagan finishes the brand voice questionnaire, writing the answers for this page will be quick.</p>
-      <h4>Sections on the New Page</h4>
+      <h5>Sections on the New Page</h5>
       <p>Each item in the current dropdown menus becomes its own section:</p>
-      <h5 class="label">From Weddings</h5>
+      <h6 class="label">From Weddings</h6>
       <ul class="chips">
         <li>U.S. Weddings</li><li>Charleston</li><li>Kiawah Island</li><li>Italy</li><li>All Weddings</li>
       </ul>
-      <h5 class="label">From Events</h5>
+      <h6 class="label">From Events</h6>
       <ul class="chips">
         <li>Event Planning</li><li>Event Design</li><li>Brand Events</li><li>Corporate Events</li><li>Private Events</li>
       </ul>
     </section>
 
     <section>
-      <h3>How To Do It</h3>
+      <h4>How To Do It</h4>
       <div class="callout">
         <p><strong>Before you start:</strong> do not delete any of the current Weddings or Events pages. Some of them already bring in visitors from Google. The Kiawah Island page had 31 clicks in the last three months. If a page ever does need to go, set up a redirect first. The steps are in action item 02.</p>
       </div>
@@ -409,19 +407,18 @@ code{
 <!-- 2. Page titles -->
 <details class="item" id="page-titles">
   <summary>
-    <span class="num">02</span>
-    <h2>Rewrite Top 5 Page Titles</h2>
+    <h3>Rewrite Top 5 Page Titles</h3>
     <span class="chev" aria-hidden="true"></span>
     <p class="dek">More people are seeing the site on Google, but fewer are clicking. Better titles and descriptions fix that without changing the pages themselves. Low risk and the fastest win.</p>
   </summary>
   <div class="item-body">
 
     <section>
-      <h3>Why It Matters</h3>
+      <h4>Why It Matters</h4>
       <p>The title and short description are the first things people see in Google results. When a page shows up a lot but gets few clicks, the title and description are the problem, not the ranking. The homepage alone dropped 27% in clicks.</p>
       <p>We keep the same page addresses and the same page text. Only the title and description change.</p>
 
-      <h4>The Top 5 Pages</h4>
+      <h5>The Top 5 Pages</h5>
       <div class="table-wrap">
         <table>
           <thead>
@@ -437,17 +434,17 @@ code{
         </table>
       </div>
 
-      <h4>Worth Flagging</h4>
+      <h5>Worth Flagging</h5>
       <div class="card">
-        <h5>Santa Barbara Is the Biggest Opportunity</h5>
+        <h6>Santa Barbara Is the Biggest Opportunity</h6>
         <p>The Santa Barbara venues guide showed up 14,943 times and got only 120 clicks. That is under 1% on the most-seen page on the whole site. It is the strongest case for this rewrite.</p>
       </div>
       <div class="card">
-        <h5>There Are Two Cooper Guides</h5>
+        <h6>There Are Two Cooper Guides</h6>
         <p>Two Cooper guides live at nearly identical addresses. One ends in "anchor" and one ends in "address." They are competing with each other, splitting 97 clicks and 19 clicks. Check whether one should redirect to the other before launch. Steps are below.</p>
       </div>
       <div class="card">
-        <h5>The Brand Name Shows Up Twice</h5>
+        <h6>The Brand Name Shows Up Twice</h6>
         <p>Journal post titles currently end with the brand name twice, because Squarespace adds "REAGAN EVENTS" to every title automatically. For example, the Dunlin guide shows up in Google as:</p>
         <p><code>The Dunlin Wedding Guide | Johns Island | Reagan Events — REAGAN EVENTS</code></p>
         <p>That wastes space Google would otherwise use for words people are searching for.</p>
@@ -455,16 +452,16 @@ code{
     </section>
 
     <section>
-      <h3>How To Write a Good Title and Description</h3>
+      <h4>How To Write a Good Title and Description</h4>
       <div class="card">
-        <h4 class="label">Titles</h4>
+        <h5 class="label">Titles</h5>
         <ul>
           <li>Keep it to about 55 characters. Google cuts off anything longer.</li>
           <li>Start with the words people search for, like the venue name, city, and "wedding."</li>
           <li>Say the brand name once at most, at the end.</li>
           <li>Every page gets its own title. No two pages should match.</li>
         </ul>
-        <h4 class="label">Descriptions</h4>
+        <h5 class="label">Descriptions</h5>
         <ul>
           <li>Keep it to about 150 characters.</li>
           <li>Write one or two plain sentences about what the reader gets from the page.</li>
@@ -474,12 +471,12 @@ code{
     </section>
 
     <section>
-      <h3>How To Do It</h3>
+      <h4>How To Do It</h4>
       <div class="tip">
         <p>Squarespace moves its menus around from time to time. If something below looks different, search the setting name at support.squarespace.com.</p>
       </div>
 
-      <h4>Fix the Repeated Brand Name (One Time)</h4>
+      <h5>Fix the Repeated Brand Name (One Time)</h5>
       <ol class="steps">
         <li>
           <strong>Open the search appearance settings</strong>
@@ -495,7 +492,7 @@ code{
         </li>
       </ol>
 
-      <h4>Update the Homepage and Team Page</h4>
+      <h5>Update the Homepage and Team Page</h5>
       <ol class="steps">
         <li>
           <strong>Open the page settings</strong>
@@ -511,7 +508,7 @@ code{
         </li>
       </ol>
 
-      <h4>Update the Journal Guides</h4>
+      <h5>Update the Journal Guides</h5>
       <p>This covers The Dunlin, Santa Barbara, and The Cooper guides.</p>
       <ol class="steps">
         <li>
@@ -528,7 +525,7 @@ code{
         </li>
       </ol>
 
-      <h4>Sort Out the Two Cooper Guides</h4>
+      <h5>Sort Out the Two Cooper Guides</h5>
       <ol class="steps">
         <li>
           <strong>Compare the two posts</strong>
@@ -555,7 +552,7 @@ code{
         </li>
       </ol>
 
-      <h4>Let Google Know</h4>
+      <h5>Let Google Know</h5>
       <ol class="steps">
         <li>
           <strong>Ask Google to look again</strong>
@@ -574,34 +571,33 @@ code{
 <!-- 3. Images -->
 <details class="item" id="images">
   <summary>
-    <span class="num">03</span>
-    <h2>Fix Image Names and Alt Text</h2>
+    <h3>Fix Image Names and Alt Text</h3>
     <span class="chev" aria-hidden="true"></span>
     <p class="dek">Name images clearly and describe them in plain words so Google can show them in image search. Brooke and Rob can take this on as their first task.</p>
   </summary>
   <div class="item-body">
 
     <section>
-      <h3>Why It Matters</h3>
+      <h4>Why It Matters</h4>
       <p>Google Image search brought in only 16 clicks in total. For a business built on beautiful photos, that is almost nothing. Google cannot see a photo. It reads the file name and the alt text to understand what is in it.</p>
       <p>Alt text is a short written description attached to an image. It also helps people who use screen readers.</p>
     </section>
 
     <section>
-      <h3>Writing Alt Text</h3>
+      <h4>Writing Alt Text</h4>
       <p>Alt text is one plain sentence describing what the image shows. Write it the way you would describe the photo to someone on the phone.</p>
       <p>Cover three things when they apply: what it shows, where it is, and what kind of event it was.</p>
 
       <div class="card">
-        <h4>Do's &amp; Don'ts</h4>
+        <h5>Do's &amp; Don'ts</h5>
         <div class="group">
-          <h5 class="label">Good Examples</h5>
+          <h6 class="label">Good Examples</h6>
           <div class="ex yes"><span class="mark">Yes</span><code>Candlelit welcome dinner tablescape at Keswick Hall in Charlottesville</code></div>
           <div class="ex yes"><span class="mark">Yes</span><code>Reception terrace overlooking the water at a wedding in Capri</code></div>
           <div class="ex yes"><span class="mark">Yes</span><code>Hand-lettered place setting at a Charleston rehearsal dinner</code></div>
         </div>
         <div class="group">
-          <h5 class="label">What to Avoid</h5>
+          <h6 class="label">What to Avoid</h6>
           <div class="ex no"><span class="mark">No</span><code>wedding</code></div>
           <div class="ex no"><span class="mark">No</span><code>Photo of a table</code></div>
           <div class="ex no"><span class="mark">No</span><code>Best luxury destination wedding planner Charleston Italy events</code></div>
@@ -610,7 +606,7 @@ code{
       </div>
 
       <div class="card">
-        <h4>The Rules</h4>
+        <h5>The Rules</h5>
         <ul>
           <li>One sentence. Roughly six to fifteen words.</li>
           <li>Sentence case. No need for a period at the end.</li>
@@ -622,7 +618,7 @@ code{
       </div>
 
       <div class="card">
-        <h4>Images Already on the Site</h4>
+        <h5>Images Already on the Site</h5>
         <p>Older images with messy file names can stay as they are. Fix them by adding alt text instead.</p>
         <div class="callout">
           <p>Do not delete and re-upload an old image just to rename it. That breaks the existing link to the image and can cost the page search visibility it has already earned.</p>
@@ -639,22 +635,22 @@ code{
     </section>
 
     <section>
-      <h3>Image Naming System</h3>
+      <h4>Image Naming System</h4>
       <p>Name every new image before it goes onto the site. Use this pattern:</p>
       <span class="pattern">venue-city-event-type-detail.jpg</span>
       <p>Not every image needs all four parts. Use what is true and skip the rest.</p>
 
       <div class="card">
-        <h4>Do's &amp; Don'ts</h4>
+        <h5>Do's &amp; Don'ts</h5>
         <div class="group">
-          <h5 class="label">Good Examples</h5>
+          <h6 class="label">Good Examples</h6>
           <div class="ex yes"><span class="mark">Yes</span><code>keswick-hall-charlottesville-welcome-dinner-tablescape.jpg</code></div>
           <div class="ex yes"><span class="mark">Yes</span><code>capri-italy-wedding-reception-terrace.jpg</code></div>
           <div class="ex yes"><span class="mark">Yes</span><code>charleston-rehearsal-dinner-place-setting.jpg</code></div>
           <div class="ex yes"><span class="mark">Yes</span><code>ocean-club-bahamas-ceremony-aisle.jpg</code></div>
         </div>
         <div class="group">
-          <h5 class="label">What to Avoid</h5>
+          <h6 class="label">What to Avoid</h6>
           <div class="ex no"><span class="mark">No</span><code>IMG_4471.jpg</code></div>
           <div class="ex no"><span class="mark">No</span><code>Screen Shot 2026-09-14 at 3.42.11 PM.png</code></div>
           <div class="ex no"><span class="mark">No</span><code>final_FINAL_v3_use this one.jpg</code></div>
@@ -663,7 +659,7 @@ code{
       </div>
 
       <div class="card">
-        <h4>The Formatting Rules</h4>
+        <h5>The Formatting Rules</h5>
         <ul>
           <li>All lowercase.</li>
           <li>Hyphens between words, never underscores or spaces.</li>
@@ -676,8 +672,8 @@ code{
     </section>
 
     <section>
-      <h3>How To Do It in Squarespace</h3>
-      <h4>New Images</h4>
+      <h4>How To Do It in Squarespace</h4>
+      <h5>New Images</h5>
       <ol class="steps">
         <li>
           <strong>Rename the file on your computer first</strong>
@@ -693,7 +689,7 @@ code{
         </li>
       </ol>
 
-      <h4>Images Already on the Site</h4>
+      <h5>Images Already on the Site</h5>
       <ol class="steps">
         <li>
           <strong>Open the page in edit mode</strong>
@@ -711,7 +707,7 @@ code{
     </section>
 
     <section>
-      <h3>Before You Upload</h3>
+      <h4>Before You Upload</h4>
       <ul class="checklist">
         <li>File is named using the pattern, all lowercase with hyphens.</li>
         <li>No client names anywhere in the file name or alt text.</li>

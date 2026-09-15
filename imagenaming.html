@@ -36,18 +36,6 @@ body{
   padding:0 24px calc(96px + env(safe-area-inset-bottom,0px));
 }
 .wrap{max-width:780px;margin:0 auto}
-header{padding:calc(88px + env(safe-area-inset-top,0px)) 0 48px;border-bottom:1px solid var(--line)}
-h1{
-  font-family:var(--serif);
-  color:var(--heading);
-  font-weight:400;
-  font-size:clamp(2rem,5.5vw,2.9rem);
-  line-height:1.15;
-  margin:0 0 18px;
-  letter-spacing:-.01em;
-}
-h1 em{font-style:italic;color:var(--gold)}
-.meta{color:var(--body-3);font-size:.82rem;line-height:1.9;margin:0}
 h2{
   font-family:var(--serif);
   color:var(--heading);
@@ -66,6 +54,7 @@ h3{
   margin:0 0 10px;
 }
 section{padding:52px 0;border-bottom:1px solid var(--line)}
+section:first-of-type{padding-top:calc(88px + env(safe-area-inset-top,0px))}
 section:last-of-type{border-bottom:0}
 p{max-width:70ch;margin:0 0 14px}
 ul,ol{max-width:70ch;margin:0 0 14px;padding-left:20px}
@@ -141,15 +130,6 @@ footer{padding:52px 0 0;color:var(--body-3);font-size:.8rem}
 </head>
 <body>
 <div class="wrap">
-
-<header>
-  <h1>Naming images so people<br><em>can find them</em></h1>
-  <p class="meta">
-    Reagan Events · Website guidance for the team<br>
-    Lindsay Dev Creative for Le Fleur Society<br>
-    REA_2026_WEB-image-naming-guide-v01
-  </p>
-</header>
 
 <section>
   <h2>Image Naming <em>System</em></h2>

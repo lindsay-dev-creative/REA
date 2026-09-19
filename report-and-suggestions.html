@@ -203,35 +203,6 @@ code{
   word-break:break-word;
 }
 
-/* Next steps */
-ol.steps{counter-reset:step;list-style:none;padding:0;margin:0 0 16px;max-width:none}
-ol.steps>li{counter-increment:step;position:relative;padding-left:46px;margin-bottom:24px;color:var(--body)}
-ol.steps>li:last-child{margin-bottom:0}
-ol.steps>li::before{
-  content:counter(step);
-  position:absolute;
-  left:0;
-  top:0;
-  width:28px;
-  height:28px;
-  border:1px solid var(--body-4);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:var(--step--1);
-  font-weight:600;
-  color:var(--body-2);
-  line-height:1;
-}
-ol.steps>li>strong{display:block;margin-bottom:2px;color:var(--heading)}
-ol.steps ul{margin:8px 0 0}
-.who{display:inline-block;font-size:var(--step--2);color:var(--body-2);border:1px solid var(--line-2);padding:1px 8px;margin-left:6px;vertical-align:2px;font-weight:400}
-
-.checklist{list-style:none;padding:0;margin:0;max-width:none}
-.checklist li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);margin:0;position:relative;color:var(--body)}
-.checklist li:last-child{border-bottom:0}
-.checklist li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:12px;border:1px solid var(--line-2)}
-
 /* Squarespace fixes */
 .fix{background:var(--surface);border:1px solid var(--line);padding:24px;margin:0 0 16px}
 .fix h4{margin-bottom:16px}
@@ -289,7 +260,6 @@ ol.steps ul{margin:8px 0 0}
   .card,.metric{padding:18px}
   .callout{padding:16px 18px}
   .takeaways li{padding:16px 18px;gap:10px;grid-template-columns:24px minmax(0,1fr)}
-  ol.steps>li{padding-left:40px}
 }
 </style>
 </head>
@@ -315,7 +285,6 @@ ol.steps ul{margin:8px 0 0}
       <li><a href="#pages">Pages Doing the Work</a></li>
       <li><a href="#gaps">Where the Gaps Are</a></li>
       <li><a href="#squarespace">Fixing It in Squarespace</a></li>
-      <li><a href="#next">What Happens Next</a></li>
     </ol>
   </nav>
   <div class="side-stats">
@@ -622,50 +591,6 @@ ol.steps ul{margin:8px 0 0}
   </div>
 
   <p class="fine">Can't find a menu? Squarespace moves things around, so search the setting name at support.squarespace.com. When you finish, send Lindsay the list of pages you changed so she can ask Google to look at them again.</p>
-</section>
-
-<!-- 7 -->
-<section class="block" id="next">
-  <h2>What Happens Next</h2>
-  <p>None of this calls for rebuilding anything. It calls for tightening what is already there.</p>
-
-  <ol class="steps">
-    <li>
-      <strong>Make the five Squarespace fixes <span class="who">Your designer</span></strong>
-      Start with the five fixes above. The other two changes on your Website Strategy page come next: the FAQ page, which answers the question-style searches, and image names with alt text, which open up Google Images. Both have the same kind of step-by-step instructions.
-      <br><a href="https://rea.lindsaydev.com/strategy.html">Open the Website Strategy page</a>
-    </li>
-    <li>
-      <strong>Keep publishing venue guides <span class="who">Reagan's team</span></strong>
-      The Dunlin and The Cooper guides prove this format works. Keep the pace you already have, and favor specific venues you know well. Real venue knowledge is something no directory site can copy.
-    </li>
-    <li>
-      <strong>Decide which searches matter most <span class="who">Reagan with Lindsay</span></strong>
-      We will settle this together during discovery, because it shapes the new site. The open questions:
-      <ul>
-        <li>Is Santa Barbara a market you want to grow, or is that traffic a nice side effect? Needs confirmation.</li>
-        <li>How much should the site lead with Charleston, compared with destinations and Italy?</li>
-      </ul>
-    </li>
-    <li>
-      <strong>Protect what already works during the redesign <span class="who">Lindsay</span></strong>
-      As the repetitive wedding and event pages are combined, any page that brings in visits today will send people to its new home automatically, and its key wording carries over. Nothing gets deleted without that redirect in place first.
-    </li>
-    <li>
-      <strong>Measure again after launch <span class="who">Lindsay</span></strong>
-      This report is the starting line. About 30 days after the new site goes live, we will pull the same numbers and compare them side by side, so you can see exactly what changed.
-    </li>
-  </ol>
-
-  <h3>A Monthly Ten-Minute Check</h3>
-  <p>Brooke can run this once a month in Google Search Console, under <strong>Performance</strong>, set to the last 28 days.</p>
-  <ul class="checklist">
-    <li>Are weekly visits still in the 65 to 100 range, or higher? A drop below 50 for two weeks in a row is worth a closer look.</li>
-    <li>Is the average spot holding around 14 or better?</li>
-    <li>Do The Dunlin and The Cooper guides still have the most visits of any journal post?</li>
-    <li>After a title rewrite, has that page's click rate gone up? Allow two to four weeks.</li>
-    <li>Has anything new shown up in the search list that you did not expect? New searches are often ideas for the next journal post.</li>
-  </ul>
 </section>
 
 </main>

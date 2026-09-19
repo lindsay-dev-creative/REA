@@ -232,6 +232,17 @@ ol.steps ul{margin:8px 0 0}
 .checklist li:last-child{border-bottom:0}
 .checklist li::before{content:"";position:absolute;left:0;top:18px;width:12px;height:12px;border:1px solid var(--line-2)}
 
+/* Squarespace fixes */
+.fix{background:var(--surface);border:1px solid var(--line);padding:24px;margin:0 0 16px}
+.fix h4{margin-bottom:16px}
+.fix dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px 20px;margin:0}
+.fix dt{font-size:var(--step--1);font-weight:600;color:var(--body-2);padding-top:2px}
+.fix dd{margin:0;color:var(--body);min-width:0}
+.fix .lbl{font-size:var(--step--2);color:var(--body-2);margin:12px 0 0}
+.fix .lbl:first-child{margin-top:0}
+.fix .pattern{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:600px){.fix{padding:18px}.fix dl{grid-template-columns:minmax(0,1fr);gap:4px}.fix dd{margin-bottom:12px}}
+
 /* Footer */
 .site-footer{max-width:1160px;margin:96px auto 0;padding-top:48px;border-top:1px solid var(--line);display:flex;justify-content:center}
 .site-footer img{display:block;width:60px;height:60px}
@@ -322,7 +333,6 @@ ol.steps ul{margin:8px 0 0}
 
 <header class="intro">
   <h1>How the Website Is Doing on Google</h1>
-  <p class="lede">A plain-English read of three months of Google data for reaganevents.com: what the numbers mean, what is working, where the gaps are, and what we do about it.</p>
   <p class="fine">This pairs with your <a href="https://rea.lindsaydev.com/strategy.html">Website Strategy</a> page. That page covers the three changes. This one shows the evidence behind them.</p>
 </header>
 
@@ -376,7 +386,7 @@ ol.steps ul{margin:8px 0 0}
       <p class="name">Of people clicked</p>
       <p class="verdict watch"><svg aria-hidden="true"><use href="#i-eye"/></svg>Worth improving</p>
       <p>Out of everyone who saw your site in Google, the share who clicked. For every 100 people who walked past the window, about 2 came in.</p>
-      <p><strong>To improve it:</strong> rewrite the page titles and short descriptions Google shows, starting with the Santa Barbara guide. The fix list is under <a href="#squarespace">Fixing It in Squarespace</a>. Lead with the words people actually search, like the venue or city name.</p>
+      <p><strong>To improve it:</strong> rewrite the page titles and short descriptions Google shows, starting with the Santa Barbara guide. The exact changes are under <a href="#squarespace">Fixing It in Squarespace</a>. Lead with the words people actually search, like the venue or city name.</p>
       <p class="aka">Google calls this "CTR," or click-through rate.</p>
     </div>
     <div class="metric">
@@ -545,100 +555,73 @@ ol.steps ul{margin:8px 0 0}
 <!-- 6 -->
 <section class="block" id="squarespace">
   <h2>Fixing It in Squarespace</h2>
-  <p>Everything in this section happens inside Squarespace's regular settings. No code, and nothing on the page itself changes. Only what Google shows changes.</p>
+  <p>Five fixes, in order. Each one says where to go, what to do, and exactly what to type. No code, and the pages themselves do not change.</p>
 
-  <div class="callout">
-    <p><strong>Two words to know.</strong> The <strong>SEO title</strong> is the blue headline people click in Google. The <strong>SEO description</strong> is the short gray summary under it. Squarespace has a field for each one on every page and every journal post.</p>
+  <div class="fix">
+    <h4>1. Stop the Brand Name Showing Twice</h4>
+    <dl>
+      <dt>Where</dt><dd><span class="path">Marketing</span> › <span class="path">SEO Appearance</span> › <span class="path">Collection Items</span> tab</dd>
+      <dt>How</dt><dd>Delete what is in the title format box, type the new text, and click <span class="path">Save</span>. This fixes every journal post at once.</dd>
+      <dt>Change it to</dt><dd><span class="pattern">%i</span></dd>
+    </dl>
   </div>
 
-  <h3>The Fix List</h3>
-  <p>Work through these in order. The first one takes five minutes and fixes every journal post at once.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Where</th><th>What Google shows now</th><th>Change it to</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>All journal posts<small>one site-wide setting</small></td>
-          <td><code>The Dunlin Wedding Guide | Johns Island | Reagan Events — REAGAN EVENTS</code><span class="count">The brand name shows up twice</span></td>
-          <td><code>The Dunlin Wedding Guide | Johns Island | Reagan Events</code><span class="count">55 characters. Steps below under "Stop the Doubled Brand Name."</span></td>
-        </tr>
-        <tr>
-          <td>Santa Barbara venues guide<small>SEO title</small></td>
-          <td><code>Wedding Venues in Santa Barbara: A Style Guide | Reagan Events</code><span class="count">62 characters, after the site-wide fix</span></td>
-          <td><code>Santa Barbara Wedding Venues: A Style Guide | Reagan Events</code><span class="count">59 characters. Leads with the exact words people search most.</span></td>
-        </tr>
-        <tr>
-          <td>Santa Barbara venues guide<small>SEO description</small></td>
-          <td><code>A curated guide to Santa Barbara wedding venues by style, from Bacara and Rosewood Miramar Beach to San Ysidro Ranch, rooftop celebrations, and private estates. Insight from Reagan Events for seamless Santa Barbara wedding receptions.</code><span class="count">234 characters. Google cuts it off around 155.</span></td>
-          <td><code>A curated guide to Santa Barbara wedding venues by style, from Bacara and Rosewood Miramar Beach to San Ysidro Ranch and private estates.</code><span class="count">137 characters. Same wording, trimmed.</span></td>
-        </tr>
-        <tr>
-          <td>Preferred vendor list post<small>SEO title</small></td>
-          <td><code>Preferred Vendor Lists: How We Curate the Best in the Business | Reagan Events</code><span class="count">78 characters</span></td>
-          <td><code>Preferred Vendor Lists: How We Curate the Best | Reagan Events</code><span class="count">61 characters</span></td>
-        </tr>
-        <tr>
-          <td>Duplicate journal posts<small>Cooper, Dunlin, vendor list, Santa Barbara</small></td>
-          <td>Two nearly identical posts for each topic</td>
-          <td>Keep the one with more visits, then send the other to it. Steps below under "Combine a Duplicate Post."</td>
-        </tr>
-        <tr>
-          <td>Brand, corporate, private, and Italy pages</td>
-          <td>Titles are fine. The pages rank too low to be seen.</td>
-          <td>Link to them from popular journal posts. Steps below under "Link From the Journal."</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="fine">The suggested titles reuse the wording already on the site. Reagan has the final say on any wording change.</p>
-
-  <h3>Step by Step</h3>
-  <div class="tip">
-    <p>Squarespace moves its menus around from time to time. If something below looks different, search the setting name at support.squarespace.com.</p>
+  <div class="fix">
+    <h4>2. Santa Barbara Venues Guide</h4>
+    <dl>
+      <dt>Where</dt><dd><span class="path">Pages</span> › the journal › hover over "Wedding Venues in Santa Barbara" › <span class="path">...</span> › <span class="path">Settings</span> › <span class="path">SEO</span> tab</dd>
+      <dt>How</dt><dd>Replace the text in both boxes and click <span class="path">Save</span>. Leave the URL alone.</dd>
+      <dt>Change it to</dt><dd>
+        <p class="lbl">SEO Title</p><span class="pattern wrap">Santa Barbara Wedding Venues: A Style Guide | Reagan Events</span>
+        <p class="lbl">SEO Description</p><span class="pattern wrap">A curated guide to Santa Barbara wedding venues by style, from Bacara and Rosewood Miramar Beach to San Ysidro Ranch and private estates.</span>
+      </dd>
+    </dl>
   </div>
 
-  <h4 class="sub">Stop the Doubled Brand Name</h4>
-  <ol class="steps">
-    <li><strong>Open the site-wide search settings</strong>In Squarespace, click <span class="path">Marketing</span>, then <span class="path">SEO Appearance</span>.</li>
-    <li><strong>Find the setting for journal posts</strong>Open the <span class="path">Collection Items</span> tab. Journal posts and podcast episodes count as collection items. The title format box probably reads <code>%i — %s</code>, which means "post title, then site name."</li>
-    <li><strong>Change it and save</strong>Replace what is in the box with <code>%i</code> on its own, then click <span class="path">Save</span>. Google will now show each post's own SEO title exactly as written.</li>
-    <li><strong>Check one post</strong>From now on, a post's SEO title only includes "Reagan Events" if you type it in. Most posts already end with "| Reagan Events," so nothing else needs to change.</li>
-  </ol>
-
-  <h4 class="sub">Change a Journal Post's Title or Description</h4>
-  <ol class="steps">
-    <li><strong>Open the journal</strong>Click <span class="path">Pages</span>, then click the journal. You will see the list of posts.</li>
-    <li><strong>Open the post settings</strong>Hover over the post, click the <span class="path">...</span> menu, and choose <span class="path">Settings</span>.</li>
-    <li><strong>Edit the SEO tab</strong>Click <span class="path">SEO</span>. Paste the new text into <span class="path">SEO Title</span> and <span class="path">SEO Description</span>. The preview shows roughly how it will look in Google.</li>
-    <li><strong>Save, and leave the URL alone</strong>Click <span class="path">Save</span>. Never change the post URL field. That address is what Google already knows.</li>
-  </ol>
-
-  <h4 class="sub">Change a Regular Page's Title or Description</h4>
-  <ol class="steps">
-    <li><strong>Open the page settings</strong>Click <span class="path">Pages</span>. Hover over the page and click the gear icon.</li>
-    <li><strong>Edit the SEO tab</strong>Click <span class="path">SEO</span> and fill in <span class="path">SEO Title</span> and <span class="path">SEO Description</span>.</li>
-    <li><strong>Save</strong>Click <span class="path">Save</span>. As with posts, do not touch the URL.</li>
-  </ol>
-
-  <h4 class="sub">Combine a Duplicate Post</h4>
-  <ol class="steps">
-    <li><strong>Pick the one to keep</strong>Keep the post with more visits: the "anchor" Cooper guide, the "sophisticated coastal celebrations" Dunlin guide, the "power of a preferred vendor list" post, and the "diverse wedding venues" Santa Barbara guide.</li>
-    <li><strong>Move anything useful over</strong>If the other post has a paragraph or photo the keeper is missing, copy it into the keeper first.</li>
-    <li><strong>Unpublish the extra post</strong>Open the extra post's settings and switch it from <span class="path">Published</span> to <span class="path">Draft</span>. Do not delete it.</li>
-    <li><strong>Send its visitors to the keeper</strong>Click <span class="path">Settings</span>, then <span class="path">Developer Tools</span>, then <span class="path">URL Mappings</span>. Add one line: the old address, an arrow, the new address, and 301. The Cooper line looks like this:<span class="pattern">/wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-address -&gt; /wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-anchor 301</span>Never edit or remove lines that are already there. Click <span class="path">Save</span>.</li>
-    <li><strong>Test it</strong>Open the old address in a private browser window. It should land on the post you kept.</li>
-  </ol>
-
-  <h4 class="sub">Link From the Journal</h4>
-  <ol class="steps">
-    <li><strong>Open a popular post</strong>Start with The Dunlin, The Cooper, and the Kiawah guides, since those get the most visits.</li>
-    <li><strong>Find a natural sentence</strong>Look for a line that mentions events, design, hosting, or Italy. Click <span class="path">Edit</span> and highlight a few words in that sentence, like "brand events" or "weddings in Italy."</li>
-    <li><strong>Add the link</strong>Click the link icon in the text toolbar, choose the matching page from the list, and click <span class="path">Save</span>. One or two links per post is plenty.</li>
-  </ol>
-
-  <div class="callout">
-    <p><strong>When you finish a batch,</strong> send Lindsay the list of pages you changed. She will ask Google to look at them again through Search Console, and the new titles usually show up within two to four weeks.</p>
+  <div class="fix">
+    <h4>3. Preferred Vendor List Post</h4>
+    <dl>
+      <dt>Where</dt><dd><span class="path">Pages</span> › the journal › hover over "Preferred Vendor Lists: How We Curate the Best in the Business" › <span class="path">...</span> › <span class="path">Settings</span> › <span class="path">SEO</span> tab</dd>
+      <dt>How</dt><dd>Replace the text in the SEO Title box and click <span class="path">Save</span>.</dd>
+      <dt>Change it to</dt><dd><span class="pattern wrap">Preferred Vendor Lists: How We Curate the Best | Reagan Events</span></dd>
+    </dl>
   </div>
+
+  <div class="fix">
+    <h4>4. Combine the Duplicate Posts</h4>
+    <dl>
+      <dt>Where</dt><dd>First the extra post's <span class="path">Settings</span>, then <span class="path">Settings</span> › <span class="path">Developer Tools</span> › <span class="path">URL Mappings</span></dd>
+      <dt>How</dt><dd>Only if the two posts really cover the same thing: switch the extra post from <span class="path">Published</span> to <span class="path">Draft</span> (never delete it), then paste its line at the bottom of URL Mappings and click <span class="path">Save</span>. Do not change the lines already there.</dd>
+      <dt>Change it to</dt><dd>
+        <p class="lbl">The Cooper</p><span class="pattern">/wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-address -&gt; /wedding-planning-journal/the-cooper-wedding-guide-charlestons-new-waterfront-anchor 301</span>
+        <p class="lbl">The Dunlin</p><span class="pattern">/wedding-planning-journal/weddings-at-the-dunlin-a-guide-to-coastal-sophistication -&gt; /wedding-planning-journal/weddings-at-the-dunlin-a-guide-to-sophisticated-coastal-celebrations 301</span>
+        <p class="lbl">Preferred vendor list</p><span class="pattern">/wedding-planning-journal/why-preferred-vendor-lists-matter -&gt; /wedding-planning-journal/the-power-of-a-preferred-vendor-list-how-we-curate-the-best-in-the-business 301</span>
+        <p class="lbl">Santa Barbara</p><span class="pattern">/wedding-planning-journal/a-coastal-gem-the-top-luxury-wedding-venues-in-santa-barbara -&gt; /wedding-planning-journal/a-guide-to-santa-barbaras-diverse-wedding-venues 301</span>
+      </dd>
+    </dl>
+  </div>
+
+  <div class="fix">
+    <h4>5. Link From the Journal to Your Event Pages</h4>
+    <dl>
+      <dt>Where</dt><dd>The Dunlin, The Cooper, and Kiawah journal posts › <span class="path">Edit</span></dd>
+      <dt>How</dt><dd>Find a sentence that mentions events or hosting, highlight the words, click the link icon, pick the page, and click <span class="path">Save</span>. One or two links per post.</dd>
+      <dt>Change it to</dt><dd>
+        <div class="table-wrap" style="margin:0">
+          <table style="min-width:0">
+            <thead><tr><th>Highlight words like</th><th>Link to</th></tr></thead>
+            <tbody>
+              <tr><td>brand events</td><td><code>/brand-event-production</code></td></tr>
+              <tr><td>corporate events</td><td><code>/corporate-event-planning</code></td></tr>
+              <tr><td>private events</td><td><code>/private-event-planning</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </dd>
+    </dl>
+  </div>
+
+  <p class="fine">Can't find a menu? Squarespace moves things around, so search the setting name at support.squarespace.com. When you finish, send Lindsay the list of pages you changed so she can ask Google to look at them again.</p>
 </section>
 
 <!-- 7 -->
@@ -648,8 +631,8 @@ ol.steps ul{margin:8px 0 0}
 
   <ol class="steps">
     <li>
-      <strong>Work through the Squarespace fix list <span class="who">Your designer</span></strong>
-      Start with the fix list above. The other two changes on your Website Strategy page come next: the FAQ page, which answers the question-style searches, and image names with alt text, which open up Google Images. Both have the same kind of step-by-step instructions.
+      <strong>Make the five Squarespace fixes <span class="who">Your designer</span></strong>
+      Start with the five fixes above. The other two changes on your Website Strategy page come next: the FAQ page, which answers the question-style searches, and image names with alt text, which open up Google Images. Both have the same kind of step-by-step instructions.
       <br><a href="https://rea.lindsaydev.com/strategy.html">Open the Website Strategy page</a>
     </li>
     <li>

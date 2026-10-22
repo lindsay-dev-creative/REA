@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Reagan Events Site Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Archivo:wdth,wght@125,300&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Color: LDC dark tokens */
+  --bg:#0A0A0A;
+  --surface:#1A1A1A;
+  --surface-2:#262626;
+  --line:#2E2E2E;
+  --line-2:#424242;
+  --heading-strong:#FAFAFA;
+  --heading:#EDEDED;
+  --body-strong:#D2D2D2;
+  --body:#B8B8B8;
+  --body-2:#989898;
+  --body-3:#797979;
+  --body-4:#555555;
+  --gold:#D4A85A;
+  --gold-hover:#EACD94;
+  --gold-focus:#B6862F;
+  --gold-tint:#2B2213;
+
+  /* Type: major third (1.25) on a 17px base */
+  --serif:Lora,"Iowan Old Style",Georgia,serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+
+  --text-label:.75rem;     /* 12 */
+  --text-small:.875rem;    /* 14 */
+  --text-body:1.0625rem;   /* 17 */
+  --text-lead:1.25rem;     /* 20 */
+  --text-h4:clamp(1.1875rem,1.1rem + .4vw,1.375rem);    /* 19 to 22 */
+  --text-h3:clamp(1.375rem,1.2rem + .75vw,1.6875rem);   /* 22 to 27 */
+  --text-h2:clamp(1.625rem,1.35rem + 1.1vw,2.0625rem);  /* 26 to 33 */
+  --text-display:clamp(2rem,1.6rem + 1.6vw,2.625rem);   /* 32 to 42 */
+
+  --lh-display:1.05;
+  --lh-heading:1.15;
+  --lh-body:1.65;
+
+  /* Space */
+  --read:680px;
+  --sidebar:220px;
+  --topnav:56px;
+  --mobile-nav:56px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--topnav) + 24px)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--body-strong);
+  font-family:var(--sans);
+  font-size:var(--text-body);
+  line-height:var(--lh-body);
+  padding:0 32px calc(64px + env(safe-area-inset-bottom,0px));
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--gold);text-underline-offset:3px}
+a:hover{color:var(--gold-hover)}
+:focus-visible{outline:2px solid var(--gold-focus);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;color:var(--heading-strong);margin:0}
+h1 em,h2 em{font-style:italic;color:var(--gold)}
+p{margin:0 0 16px}
+strong{font-weight:600;color:var(--heading)}
+code{font-family:var(--mono);font-size:.8em;color:var(--heading);background:var(--surface-2);padding:2px 6px;border-radius:2px;word-break:break-word}
+
+/* Document switcher */
+.topnav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -32px;padding:env(safe-area-inset-top,0px) 32px 0}
+.topnav ul{list-style:none;margin:0 auto;padding:0;max-width:1160px;display:flex;gap:32px;height:var(--topnav);overflow-x:auto;scrollbar-width:none}
+.topnav ul::-webkit-scrollbar{display:none}
+.topnav li{display:flex}
+.topnav a{display:flex;align-items:center;white-space:nowrap;font-size:var(--text-small);font-weight:500;color:var(--body-2);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
+.topnav a:hover{color:var(--heading-strong)}
+.topnav a[aria-current="page"]{color:var(--heading-strong);border-bottom-color:var(--gold)}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);gap:72px;max-width:1160px;margin:0 auto}
+.sidebar{position:sticky;top:var(--topnav);align-self:start;max-height:calc(100vh - var(--topnav));overflow-y:auto;padding:56px 0 32px}
+.side-nav ol{list-style:none;margin:0;padding:0}
+.side-nav li{margin:0}
+.side-nav a{display:block;padding:12px 0 12px 16px;border-left:1px solid var(--line);color:var(--body);text-decoration:none;font-size:var(--text-small);line-height:1.3}
+.side-nav a:hover{color:var(--heading-strong)}
+.side-nav a[aria-current="true"]{color:var(--heading-strong);border-left-color:var(--gold)}
+.side-nav li.sub a{padding:8px 0 8px 32px;font-size:var(--text-label)}
+.side-stats{margin-top:40px;padding-left:16px;border-left:1px solid var(--line)}
+.stats{display:grid;gap:18px;margin:0 0 16px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:var(--text-h4);color:var(--heading-strong);line-height:1.1}
+.stat span{font-size:var(--text-small);color:var(--body-2);line-height:1.4;display:block;margin-top:2px}
+.fine{font-size:var(--text-small);color:var(--body-2);max-width:var(--read)}
+main{max-width:800px;min-width:0}
+
+.intro{padding:48px 0 8px}
+.intro h1{font-size:var(--text-display);line-height:var(--lh-display);letter-spacing:-.01em}
+
+/* Sections: one shows at a time */
+.block{padding-top:40px}
+.block[hidden]{display:none}
+.block>h2{font-size:var(--text-h2);line-height:var(--lh-heading);margin-bottom:28px}
+
+/* Decision line */
+.decision{font-family:var(--serif);font-size:var(--text-h3);line-height:1.2;color:var(--heading-strong);max-width:22em;margin:0 0 20px}
+.decision::after{content:"";display:block;width:48px;height:2px;background:var(--gold);margin-top:20px}
+.support{color:var(--body);max-width:var(--read)}
+
+/* Summary decisions */
+.decisions{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.decisions li{padding:24px 0;border-top:1px solid var(--line)}
+.decisions h3{font-size:var(--text-h4);line-height:1.2;margin-bottom:8px}
+.decisions p{margin:0;font-size:var(--text-small);color:var(--body-2)}
+
+/* Page entries */
+.page{padding:56px 0;border-top:1px solid var(--line)}
+.page:first-of-type{margin-top:56px}
+.page>h3{font-size:var(--text-h3);line-height:var(--lh-heading);margin-bottom:6px}
+.url{display:block;font-family:var(--mono);font-size:var(--text-small);color:var(--body-3);margin-bottom:24px}
+.page .decision{font-size:var(--text-h4)}
+h4.sub{font-size:var(--text-h4);line-height:1.2;margin:40px 0 16px}
+
+/* Steps */
+ol.steps{list-style:none;counter-reset:s;margin:0 0 16px;padding:0;max-width:var(--read)}
+ol.steps>li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);padding:16px 0;border-top:1px solid var(--line)}
+ol.steps>li:last-child{border-bottom:1px solid var(--line)}
+ol.steps>li::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:1.0625rem;line-height:1.3;color:var(--gold)}
+ol.steps b{display:block;font-weight:600;color:var(--heading)}
+ol.steps span{color:var(--body)}
+
+.example{font-family:var(--serif);font-style:italic;font-size:var(--text-h4);line-height:1.3;color:var(--heading-strong);background:var(--surface);border:1px solid var(--line);padding:20px 24px;margin:0 0 12px;max-width:var(--read)}
+
+/* Needed from the team */
+.needs{max-width:var(--read);border-left:2px solid var(--gold);background:var(--surface-2);padding:16px 20px;margin:24px 0 0;font-size:var(--text-small);color:var(--body-strong)}
+.needs p{margin:0}
+.needs strong{display:block;margin-bottom:2px;color:var(--heading-strong)}
+
+/* Expandable detail */
+details.more{max-width:var(--read);margin:28px 0 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+details.more>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;font-weight:500;color:var(--heading)}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"";width:12px;height:12px;flex:none;background:linear-gradient(var(--gold),var(--gold)) center/12px 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) center/1.5px 12px no-repeat;transition:transform .2s}
+details.more[open]>summary::after{transform:rotate(45deg)}
+@media(prefers-reduced-motion:reduce){details.more>summary::after{transition:none}}
+details.more>summary:hover{color:var(--gold-hover)}
+.more-body{padding:4px 0 24px}
+
+dl.rows{margin:0;display:grid;grid-template-columns:180px minmax(0,1fr);font-size:var(--text-small)}
+dl.rows dt,dl.rows dd{padding:12px 0;border-top:1px solid var(--line);margin:0}
+dl.rows dt{color:var(--body-2);padding-right:20px}
+dl.rows dd{color:var(--body-strong)}
+dl.rows dt:first-of-type,dl.rows dd:first-of-type{border-top:0}
+
+/* Navigation diagram */
+.navbar-mock{display:flex;flex-wrap:wrap;align-items:center;gap:10px 32px;background:var(--surface);border:1px solid var(--line);padding:22px 28px;font-size:var(--text-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--heading-strong)}
+.navbar-mock .btn{margin-left:auto;border:1px solid var(--heading-strong);padding:10px 18px}
+.menus{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:0;margin:0 0 12px}
+.menu{background:var(--surface);padding:24px 28px}
+.menu h3{font-family:var(--sans);font-size:var(--text-label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--heading-strong);margin:0 0 12px}
+.menu h3:not(:first-child){margin-top:28px}
+.menu ul{list-style:none;margin:0;padding:0}
+.menu li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;font-size:var(--text-small);color:var(--body-strong);border-bottom:1px solid var(--line)}
+.menu li:last-child{border-bottom:0}
+.menu li{flex-wrap:wrap}
+.menu li small{margin-left:auto;font-family:var(--mono);font-size:.75rem;color:var(--body-3);text-align:right;overflow-wrap:anywhere}
+.menu li.head{color:var(--heading-strong);font-weight:600}
+.menu li.head small{font-weight:400}
+.menu li.head:not(:first-child){margin-top:20px;border-top:1px solid var(--line-2)}
+.tag{display:inline-block;font-size:.6875rem;font-weight:600;background:var(--gold-tint);color:var(--gold);padding:1px 8px;border-radius:2px;margin-left:6px;vertical-align:1px}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;font-size:var(--text-small);min-width:640px}
+th,td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
+thead th{font-weight:500;color:var(--body-2);border-bottom:1px solid var(--line-2)}
+td{color:var(--body-strong)}
+td:first-child{font-family:var(--mono);font-size:.8125rem;color:var(--heading);white-space:nowrap}
+td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
+
+/* Hero mockup: proportions measured from the live site at 1400px wide (1px = 100/1400 cqw) */
+.site-mock{container-type:inline-size;margin:56px 0 0;border:1px solid var(--line)}
+.site-mock .frame{display:flex;flex-direction:column;aspect-ratio:1400/800;background:#FAFAFA}
+.site-mock header{flex:none;background:#FAFAFA;border-top:.286cqw solid #000;border-bottom:.286cqw solid #000;padding:3.36cqw 0 3.5cqw;text-align:center}
+.site-mock .logo{display:block;width:13cqw;height:auto;margin:0 auto 1.86cqw}
+.site-mock nav{display:flex;justify-content:center;align-items:center;gap:2.07cqw;font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;font-stretch:125%;font-weight:300;font-size:.914cqw;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:#000}
+.site-mock nav span{display:inline-flex;align-items:center;gap:.15cqw;white-space:nowrap}
+.site-mock nav svg{width:.64cqw;height:.64cqw;stroke:#000;fill:none;stroke-width:1}
+.site-mock .hero{position:relative;flex:1;overflow:hidden}
+.site-mock .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.site-mock .hero img.mark{position:absolute;left:50%;top:56.7%;width:33.6cqw;height:auto;transform:translate(-50%,-50%)}
+
+/* Podcast episode concept: colors from reaganevents.com/journal */
+.browser{margin:8px 0 12px;border:1px solid var(--line-2);border-radius:6px;overflow:hidden;background:#1C1C1D;container-type:inline-size}
+.browser .chrome{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#262626;border-bottom:1px solid #000}
+.browser .chrome i{width:10px;height:10px;border-radius:50%;background:#424242;flex:none}
+.browser .chrome span{flex:1;margin-left:10px;font-family:var(--mono);font-size:.6875rem;color:var(--body-2);background:#1A1A1A;border-radius:4px;padding:5px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ep{
+  --p-bg:#FAFAFA;--p-ink:#28282A;--p-muted:#5F5F62;--p-panel:#F5F5F3;--p-dark:#1C1C1D;--p-line:#DCDCD8;
+  --p-serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --p-wide:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --p-mono:"IBM Plex Mono",Menlo,monospace;
+  height:880px;max-height:80vh;overflow-y:auto;background:var(--p-bg);color:var(--p-ink);
+  font-family:var(--p-serif);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;overscroll-behavior:contain
+}
+.ep:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.ep img{display:block;max-width:100%;height:auto}
+.ep p{margin:0 0 1.1em}
+.ep h1,.ep h2{font-family:var(--p-serif);color:var(--p-ink);font-weight:400}
+
+/* Header, matching the live site */
+.ep-header{border-top:4px solid #000;border-bottom:4px solid #000;padding:30px 20px 26px;text-align:center;background:var(--p-bg)}
+.ep-logo{width:min(150px,36%);margin:0 auto 18px}
+.ep-header nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;color:#000}
+.ep-header nav span{display:inline-flex;align-items:center;gap:2px}
+.ep-header nav svg{width:7px;height:7px;stroke:#000;fill:none;stroke-width:1}
+.ep-header nav .on{text-decoration:underline;text-underline-offset:4px}
+
+/* Labels */
+.ep .ep-meta,.ep .ep-label{font-family:var(--p-mono);font-size:12px;letter-spacing:.02em;color:var(--p-muted);text-transform:none;margin:0 0 14px;line-height:1.4}
+.ep .ep-label{color:var(--p-ink);padding-bottom:12px;border-bottom:1px solid var(--p-ink);margin-bottom:6px}
+
+/* Hero */
+.ep-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end;padding:64px 56px 56px}
+.ep-title{font-size:clamp(34px,5.4cqw,52px);line-height:1.08;letter-spacing:.04em;text-transform:uppercase;margin:0 0 22px}
+.ep-dek{font-style:italic;font-size:21px;line-height:1.5;color:var(--p-ink);max-width:24em}
+.ep-host{font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:28px 0 0 !important;padding-top:18px;border-top:1px solid var(--p-line)}
+.ep-host span{color:var(--p-muted);margin-right:8px}
+.ep-portrait{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* Player */
+.ep-player{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;background:var(--p-dark);color:#FAFAFA;margin:0 56px;padding:22px 26px}
+.ep-play{width:52px;height:52px;border-radius:50%;background:#FAFAFA;display:grid;place-items:center}
+.ep-play svg{width:20px;height:20px;fill:var(--p-dark);margin-left:3px}
+.ep-track p{font-family:var(--p-mono);font-size:12px;margin:0 0 8px;color:#C9C9C6}
+.ep-wave{height:28px;background:repeating-linear-gradient(90deg,#FAFAFA 0 2px,transparent 2px 6px);-webkit-mask:linear-gradient(90deg,#000 0 30%,rgba(0,0,0,.35) 30%);mask:linear-gradient(90deg,#000 0 30%,rgba(0,0,0,.35) 30%);clip-path:polygon(0 40%,4% 20%,8% 55%,12% 10%,16% 45%,20% 25%,24% 60%,28% 15%,32% 50%,36% 30%,40% 65%,44% 20%,48% 45%,52% 10%,56% 55%,60% 30%,64% 45%,68% 15%,72% 60%,76% 25%,80% 50%,84% 20%,88% 55%,92% 35%,96% 50%,100% 30%,100% 100%,0 100%)}
+.ep-platforms{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.ep-platforms span{font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(250,250,250,.5);padding:8px 12px;white-space:nowrap}
+
+/* Summary */
+.ep-summary{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:64px 56px 24px}
+.ep-takeaways,.ep-chapters{list-style:none;margin:0;padding:0;font-size:15.5px;line-height:1.5}
+.ep-takeaways li,.ep-chapters li{padding:12px 0;border-bottom:1px solid var(--p-line)}
+.ep-takeaways li::before{content:"";display:inline-block;width:14px;height:1px;background:var(--p-ink);vertical-align:middle;margin-right:12px}
+.ep-chapters{counter-reset:c}
+.ep-chapters li{counter-increment:c;display:grid;grid-template-columns:34px 1fr}
+.ep-chapters li::before{content:counter(c,decimal-leading-zero);font-family:var(--p-mono);font-size:12px;color:var(--p-muted);padding-top:3px}
+
+/* Body */
+.ep-body{max-width:620px;margin:0 auto;padding:48px 32px 8px}
+.ep-lead{font-size:24px;line-height:1.45;font-style:italic}
+.ep-body em{font-style:italic}
+.ep-h2{font-size:22px;line-height:1.3;letter-spacing:.06em;text-transform:uppercase;margin:56px 0 20px;padding-top:24px;border-top:1px solid var(--p-ink)}
+.ep-h2 span{display:block;font-family:var(--p-mono);font-size:12px;letter-spacing:0;color:var(--p-muted);margin-bottom:8px}
+.ep-quote{margin:44px -40px;padding:0 40px;text-align:center}
+.ep-quote p{font-size:27px;line-height:1.35;font-style:italic;margin:0 0 16px}
+.ep-quote p::before{content:"\201C"}
+.ep-quote p::after{content:"\201D"}
+.ep-quote cite,.ep-closing cite{font-style:normal;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--p-muted)}
+.ep-more{font-family:var(--p-mono);font-size:12px;color:var(--p-muted);text-align:center;border:1px dashed var(--p-line);padding:14px;margin-top:32px}
+.ep-wide{margin:40px 0 0}
+.ep-wide img{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* Guest */
+.ep-guest{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;background:var(--p-panel);margin:56px 56px 0;padding:32px}
+.ep-guest img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.ep-guest-name{font-size:28px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 12px;line-height:1.2}
+.ep-guest p{font-size:16px;line-height:1.65}
+.ep-links{display:flex;gap:20px;flex-wrap:wrap;margin:0 !important;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px !important;letter-spacing:.1em;text-transform:uppercase}
+.ep-links span{border-bottom:1px solid var(--p-ink);padding-bottom:2px}
+
+/* Closing */
+.ep-closing{max-width:640px;margin:0 auto;padding:80px 32px;text-align:center}
+.ep-closing p{font-size:clamp(26px,4cqw,36px);line-height:1.3;text-transform:uppercase;letter-spacing:.04em;margin:0 0 20px}
+
+/* Next steps */
+.ep-next{display:grid;grid-template-columns:1fr 1fr;gap:48px;background:var(--p-dark);color:#FAFAFA;padding:56px}
+.ep-next .ep-meta{color:#A8A8A5}
+.ep-next h2{color:#FAFAFA;font-size:26px;line-height:1.25;margin:0 0 24px}
+.ep-form{display:flex;border:1px solid rgba(250,250,250,.5)}
+.ep-form span{flex:1;font-family:var(--p-mono);font-size:12px;color:#A8A8A5;padding:12px 14px}
+.ep-form b{font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:#FAFAFA;color:var(--p-dark);padding:12px 16px;display:flex;align-items:center}
+.ep-related ul{list-style:none;margin:0;padding:0}
+.ep-related li{padding:14px 0;border-bottom:1px solid rgba(250,250,250,.15);font-size:16px;line-height:1.45}
+.ep-related li:first-child{padding-top:0}
+
+.ep-inquire{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding:48px 32px;border-bottom:1px solid var(--p-line)}
+.ep-inquire p{font-style:italic;font-size:22px;margin:0}
+.ep-btn{font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--p-ink);padding:12px 22px}
+.ep-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;padding:32px 20px 40px;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--p-muted)}
+
+@container (max-width:640px){
+  .ep-hero{grid-template-columns:1fr;gap:28px;padding:40px 24px 32px}
+  .ep-portrait{order:-1;aspect-ratio:4/3}
+  .ep-player{grid-template-columns:auto 1fr;margin:0 24px}
+  .ep-platforms{grid-column:1/-1;justify-content:flex-start}
+  .ep-summary,.ep-next{grid-template-columns:1fr;gap:32px;padding:40px 24px}
+  .ep-body{padding:32px 24px 8px}
+  .ep-quote{margin:36px 0;padding:0}
+  .ep-quote p{font-size:22px}
+  .ep-guest{grid-template-columns:1fr;margin:40px 24px 0;padding:24px}
+  .ep-guest img{max-width:200px}
+}
+
+/* Homepage concept: shares the episode concept's colors and fonts */
+.hp a{color:inherit;text-decoration:none}
+.hp h2{font-size:clamp(26px,3.6cqw,34px);line-height:1.2;letter-spacing:.06em;text-transform:uppercase;margin:0}
+.hp-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.hp-head .ep-meta{margin-bottom:10px}
+.hp-link{font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px;white-space:nowrap}
+.hp-btn{display:inline-block;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--p-ink);padding:13px 26px}
+.hp-btn.light{border-color:#FFFFFF;color:#FFFFFF}
+
+/* Hero */
+.hp-hero{position:relative;aspect-ratio:16/9;min-height:420px;overflow:hidden}
+.hp-hero img,.hp-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hp-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 25%,rgba(0,0,0,.7))}
+.hp-hero-text{position:absolute;inset:auto 0 0 0;z-index:1;text-align:center;padding:0 32px 56px;color:#FFFFFF}
+.hp-hero h1{color:#FFFFFF;font-size:clamp(24px,3.6cqw,38px);text-shadow:0 1px 18px rgba(0,0,0,.35);line-height:1.15;letter-spacing:.06em;text-transform:uppercase;margin:0 0 26px}
+.hp-hero h1 span{display:block;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:12px;letter-spacing:.3em;margin-top:16px}
+
+/* Planning experience */
+.hp-intro{max-width:660px;margin:0 auto;padding:96px 32px;text-align:center}
+.hp-intro h2{margin:0 0 28px}
+.hp-intro p:not(.ep-meta){font-size:19px;line-height:1.75;margin-bottom:28px}
+
+/* Services */
+.hp-services{padding:0 56px 96px}
+.hp-services .hp-head{justify-content:center;border-top:1px solid var(--p-ink);padding-top:14px}
+.hp-cards{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.hp-card{display:flex;flex-direction:column}
+.hp-card img{width:100%;aspect-ratio:4/5;object-fit:cover;margin-bottom:22px;transition:opacity .2s}
+.hp-card:hover img{opacity:.9}
+.hp-num{font-family:var(--p-mono);font-size:12px;color:var(--p-muted)}
+.hp-card h3{font-family:var(--p-serif);font-weight:400;font-size:30px;letter-spacing:.08em;text-transform:uppercase;margin:4px 0 10px;color:var(--p-ink)}
+.hp-card p{font-size:16px;line-height:1.6;margin:0 0 16px}
+.hp-card ul{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--p-line)}
+.hp-card li{font-size:15px;padding:8px 0;border-bottom:1px solid var(--p-line)}
+.hp-card .hp-link{align-self:flex-start;margin-top:auto}
+
+/* Reviews: one large centered quote */
+.hp-reviews{background:var(--p-panel);padding:96px 56px 88px;text-align:center}
+.hp-qmark{display:block;font-family:var(--p-serif);font-size:110px;line-height:1;height:66px;color:#A9A9A4;margin:0 auto 4px}
+.hp-slides{display:grid;max-width:680px;margin:0 auto}
+.hp-slide{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .45s;display:flex;flex-direction:column;justify-content:center}
+.hp-slide.is-on{opacity:1;visibility:visible}
+.hp-slide p{font-style:italic;font-size:clamp(22px,3.2cqw,30px);line-height:1.4;margin:0 0 24px}
+.hp-slide cite{font-style:normal;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--p-muted)}
+.hp-controls{display:flex;align-items:center;justify-content:center;gap:18px}
+.hp-reviews .hp-controls{margin:32px 0 24px}
+.hp-controls button{appearance:none;width:40px;height:40px;border:1px solid var(--p-ink);background:transparent;color:var(--p-ink);font-size:15px;cursor:pointer;display:grid;place-items:center}
+.hp-controls button:hover{background:var(--p-ink);color:var(--p-bg)}
+.hp-controls span{font-family:var(--p-mono);font-size:12px;color:var(--p-muted);min-width:56px}
+@media(prefers-reduced-motion:reduce){.hp-slide{transition:none}}
+
+/* Podcasts */
+.hp-pods{padding:96px 56px}
+.hp-pod-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.hp-pod{display:flex;flex-direction:column;padding-top:20px;border-top:1px solid var(--p-ink)}
+.hp-pod img{width:72%;aspect-ratio:1;object-fit:cover;border-radius:50%;margin:0 0 18px;transform:scale(1);clip-path:circle(48%)}
+.hp-pod .ep-meta{margin-bottom:8px}
+.hp-pod h3{font-family:var(--p-serif);font-weight:400;font-size:17px;line-height:1.4;margin:0 0 14px;color:var(--p-ink)}
+.hp-listen{margin-top:auto;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.hp-pod:hover h3{text-decoration:underline;text-underline-offset:4px}
+
+/* Social rail */
+.hp-social{padding:0 0 96px;text-align:center}
+.hp-social .hp-head{padding:0 56px;text-align:left}
+.hp-social .hp-controls{margin:0}
+.hp-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 56px;margin-bottom:36px;scroll-padding:0 56px}
+.hp-rail::-webkit-scrollbar{display:none}
+.hp-rail img{flex:none;width:clamp(180px,28cqw,240px);aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start}
+
+/* Footer */
+.hp-footer{background:var(--p-dark);color:#E8E8E5;padding:72px 56px 32px}
+.hp-footer .ep-meta{color:#A8A8A5}
+.hp-foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,250,.15)}
+.hp-foot-brand{display:flex;flex-direction:column;align-items:center;align-self:start;justify-self:start;text-align:center}
+.hp-foot-brand img{width:150px;margin-bottom:18px}
+.hp-foot-brand p{font-style:italic;font-size:18px;line-height:1.3;margin:0}
+.hp-foot-list{display:flex;flex-direction:column;gap:10px;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+.hp-foot-list .ep-meta{font-family:var(--p-mono);letter-spacing:.02em;text-transform:none;font-size:12px;margin-bottom:6px}
+.hp-foot-join{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:center;padding:36px 0;border-bottom:1px solid rgba(250,250,250,.15)}
+.hp-foot-join .ep-meta{margin:0;font-size:13px;color:#E8E8E5}
+.hp-foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;font-family:var(--p-mono);font-size:11px;color:#A8A8A5}
+
+@container (max-width:640px){
+  .hp-hero{aspect-ratio:3/4}
+  .hp-hero-text{padding:0 20px 40px}
+  .hp-intro{padding:64px 24px}
+  .hp-services,.hp-pods{padding-left:24px;padding-right:24px}
+  .hp-cards{grid-template-columns:1fr;gap:56px}
+  .hp-reviews{padding:64px 24px}
+  .hp-pod-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .hp-social .hp-head{padding:0 24px}
+  .hp-rail{padding:0 24px;scroll-padding:0 24px}
+  .hp-footer{padding:56px 24px 28px}
+  .hp-foot-top{grid-template-columns:1fr 1fr}
+  .hp-foot-brand{grid-column:1/-1}
+  .hp-foot-join{grid-template-columns:1fr;gap:14px}
+}
+
+/* Pager */
+.pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line-2);padding:28px 0 0;margin-top:56px}
+.pager a{text-decoration:none;color:var(--heading-strong)}
+.pager a:last-child{text-align:right;margin-left:auto}
+.pager small{display:block;font-size:var(--text-label);color:var(--body-2)}
+.pager span{font-family:var(--serif);font-size:var(--text-h4)}
+.pager a:hover span{color:var(--gold-hover)}
+
+.site-footer{max-width:1160px;margin:96px auto 0;padding-top:48px;border-top:1px solid var(--line);display:flex;justify-content:center}
+.site-footer img{display:block;width:60px;height:60px}
+
+@media(max-width:960px){
+  body{padding:0 20px 64px}
+  .topnav{margin:0 -20px;padding-inline:20px}
+  .layout{display:flex;flex-direction:column;gap:0}
+  .sidebar{display:contents}
+  .side-nav{position:sticky;top:var(--topnav);z-index:10;order:0;margin:0 -20px;padding:0 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .side-nav ol{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .side-nav ol::-webkit-scrollbar{display:none}
+  .side-nav a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;padding:0 12px;height:var(--mobile-nav);display:flex;align-items:center}
+  .side-nav li:first-child a{padding-left:0}
+  .side-nav a[aria-current="true"]{border-bottom-color:var(--gold)}
+  .side-nav li.sub a{padding:0 12px;font-size:var(--text-small)}
+  main{order:1}
+  .side-stats{order:2;margin:48px 0 0;padding:28px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html{scroll-padding-top:calc(var(--topnav) + var(--mobile-nav) + 16px)}
+  .intro{padding-top:40px}
+}
+@media(max-width:760px){
+  :root{--text-body:1rem}
+  .decisions{grid-template-columns:minmax(0,1fr)}
+  .menus{grid-template-columns:minmax(0,1fr)}
+  .navbar-mock{gap:10px 20px;padding:18px 20px}
+  .navbar-mock .btn{margin-left:0}
+  .menu{padding:20px}
+  dl.rows{grid-template-columns:minmax(0,1fr)}
+  dl.rows dt{padding-bottom:0;border-top:1px solid var(--line)}
+  dl.rows dd{border-top:0;padding-top:2px}
+}
+@media(max-width:600px){
+  body{padding:0 16px 56px}
+  .topnav,.side-nav{margin:0 -16px;padding-inline:16px}
+  .topnav ul{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Documents">
+  <ul>
+    <li><a href="strategy.html#kickoff">Kickoff Strategy</a></li>
+    <li><a href="strategy.html#findings">Initial Findings &amp; Fixes</a></li>
+    <li><a href="#siteplan" aria-current="page">Site Plan</a></li>
+  </ul>
+</nav>
+
+<div class="doc" id="siteplan">
+<div class="layout">
+
+<aside class="sidebar">
+  <nav class="side-nav" aria-label="Sections">
+    <ol>
+      <li><a href="#short-version">The Short Version</a></li>
+      <li><a href="#site-structure">Proposed Site Structure</a></li>
+      <li class="sub"><a href="#homepage">Homepage</a></li>
+      <li class="sub"><a href="#podcast-episode">Podcast Episode</a></li>
+      <li><a href="#seo">SEO</a></li>
+    </ol>
+  </nav>
+  <div class="side-stats">
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>50,279</b><span>Homepage impressions</span></div>
+      <div class="stat" role="listitem"><b>14,192</b><span>Brand Events page impressions</span></div>
+      <div class="stat" role="listitem"><b>3,961</b><span>Impressions on /services, hidden from the menu</span></div>
+      <div class="stat" role="listitem"><b>0</b><span>Portfolio clicks from 2,445 impressions</span></div>
+    </div>
+    <p class="fine">Google Search Console, May 29, 2025 to September 28, 2026. Web search only.</p>
+  </div>
+</aside>
+
+<main>
+
+<header class="intro">
+  <h1>Site <em>Plan</em></h1>
+</header>
+
+<!-- 1 -->
+<section class="block" id="short-version">
+  <h2>The Short <em>Version</em></h2>
+  <p class="decision">Events lead, weddings follow, and no page Google already ranks gets removed.</p>
+  <p class="support">Today every path on the site leads with weddings: the hero video, the homepage headline, the portfolio title, and even the About page, which sits under Weddings. This plan changes the order things appear in, not the pages themselves.</p>
+
+  <ul class="decisions">
+    <li><h3>A five-link menu</h3><p>What We Do, Gallery, About, Press, Inquire. Events come before weddings, and the Journal moves to the footer.</p></li>
+    <li><h3>Two services pages, no new URLs</h3><p>/services becomes Event Services. /all-destination-weddings becomes Wedding Services.</p></li>
+    <li><h3>A hero video that isn't about weddings</h3><p>A short cut of brand and corporate events replaces the wedding hero.</p></li>
+    <li><h3>One About page</h3><p>About Us comes out of the Weddings menu. Team and process stay live and are linked from About.</p></li>
+    <li><h3>Portfolio becomes Gallery</h3><p>Same URL. Corporate, brand and private galleries move to the front.</p></li>
+    <li><h3>One new page, one redirect fix</h3><p>/press is new, and the /weddings redirect gets corrected. Every other URL stays the same.</p></li>
+  </ul>
+
+
+  <div class="pager"><a href="#site-structure"><small>Next</small><span>Proposed Site Structure</span></a></div>
+</section>
+
+<!-- 2 -->
+<section class="block" id="site-structure" hidden>
+  <h2>Proposed Site <em>Structure</em></h2>
+
+  <div class="navbar-mock" aria-label="Proposed top menu">
+    <span>What We Do</span><span>Gallery</span><span>About</span><span>Press</span><span class="btn">Inquire</span>
+  </div>
+  <div class="menus">
+    <div class="menu">
+      <h3>What We Do</h3>
+      <ul>
+        <li class="head">All Event Services <small>/services</small></li>
+        <li>Brand Events <small>/brand-event-production</small></li>
+        <li>Corporate Events <small>/corporate-event-planning</small></li>
+        <li>Private Events <small>/private-event-planning</small></li>
+        <li>Event Design &amp; Production <small>/event-design-luxury-production</small></li>
+        <li>Event Planning &amp; Management <small>/event-planning-management</small></li>
+        <li class="head">All Wedding Services <small>/all-destination-weddings</small></li>
+        <li>U.S. Weddings <small>/us-destination-weddings</small></li>
+        <li>Charleston Weddings <small>/charleston-destination-weddings</small></li>
+        <li>Kiawah Island Weddings <small>/kiawah-island-destination-weddings</small></li>
+        <li>Italy Weddings <small>/italy-destination-weddings</small></li>
+      </ul>
+    </div>
+    <div class="menu">
+      <h3>Single links</h3>
+      <ul>
+        <li>Gallery <small>/destination-wedding-event-portfolio</small></li>
+        <li>About <small>/about-reagan-events</small></li>
+        <li><span>Press <span class="tag">New</span></span> <small>/press</small></li>
+        <li>Inquire <small>/inquire</small></li>
+      </ul>
+      <h3>Footer</h3>
+      <ul>
+        <li>Journal <small>/journal</small></li>
+        <li>Wine &amp; Dine Me <small>/wine-dine-me-podcast</small></li>
+        <li>The Art of the Host <small>Substack</small></li>
+        <li>Reviews <small>/testimonials</small></li>
+      </ul>
+    </div>
+  </div>
+  <p class="fine">Squarespace dropdowns can't show group headings, so All Event Services and All Wedding Services open each group and link to its overview page.</p>
+
+  <details class="more">
+    <summary>What changes from today's menu</summary>
+    <div class="more-body">
+      <dl class="rows">
+        <dt>About menu (Team, Process)</dt><dd>One About link. Team and process are linked from the About page.</dd>
+        <dt>Weddings menu</dt><dd>Moves into What We Do, after events. About Us leaves the menu.</dd>
+        <dt>Events menu</dt><dd>The same five pages, now first in What We Do</dd>
+        <dt>Portfolio</dt><dd>Gallery</dd>
+        <dt>No reviews link</dt><dd>Reviews stays out of the menu. The existing /testimonials page is linked from the homepage, About and the footer.</dd>
+        <dt>Journal</dt><dd>Moves to the footer with Wine &amp; Dine Me and The Art of the Host. Press becomes its own menu link.</dd>
+        <dt>Footer SERVICES</dt><dd>Points to /services instead of /our-planning-process. Add JOURNAL, WINE &amp; DINE ME, THE ART OF THE HOST, REVIEWS and INSTAGRAM.</dd>
+      </dl>
+    </div>
+  </details>
+
+  <figure class="site-mock">
+    <div class="frame">
+      <header>
+        <img class="logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
+        <nav aria-label="Proposed main navigation mockup"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+      </header>
+      <div class="hero">
+        <video class="bg" src="videos/rea-hero-banner.mp4" poster="images/rea-hero-banner-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      </div>
+    </div>
+  </figure>
+
+  <article class="page" id="homepage">
+    <h3>Homepage</h3>
+    <span class="url">/</span>
+    <p class="decision">A magazine cover, not a sales page: the full-width hero, then the planning experience, services, reviews, podcast and Instagram.</p>
+
+    <figure class="browser">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>reaganevents.com</span></div>
+      <div class="ep hp" tabindex="0" aria-label="Homepage concept, scrollable">
+
+        <header class="ep-header">
+          <img class="ep-logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
+          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+        </header>
+
+        <section class="hp-hero">
+          <video src="videos/rea-hero-banner.mp4" poster="images/rea-hero-banner-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+          <div class="hp-hero-text">
+            <h1>Luxury Events &amp; Destination Weddings</h1>
+            <span class="hp-btn light">Inquire</span>
+          </div>
+        </section>
+
+        <section class="hp-intro">
+          <p class="ep-meta">Our process</p>
+          <h2>The Reagan Events Planning Experience</h2>
+          <p>Every celebration begins with a story. At Reagan Events, our role as a luxury wedding planner and event producer is to transform that story into an extraordinary, seamless experience. Whether you’re wondering how to plan a wedding, what a complete wedding plan includes, or even how long does it take to plan a wedding or event, our process is designed to answer every question while elevating every detail.</p>
+          <a class="hp-link" href="https://reaganevents.com/our-planning-process" target="_blank" rel="noopener">Our process &#8594;</a>
+        </section>
+
+        <section class="hp-services">
+          <div class="hp-head"><p class="ep-meta">What we do</p></div>
+          <div class="hp-cards">
+            <a class="hp-card" href="https://reaganevents.com/services" target="_blank" rel="noopener">
+              <img src="images/rea-home-events.jpg" alt="Guests dancing under purple lighting at an evening event in a tent" width="1024" height="683">
+              <span class="hp-num">01</span>
+              <h3>Events</h3>
+              <p>Brand, corporate and private events, from creative direction through production.</p>
+              <ul><li>Brand Events</li><li>Corporate Events</li><li>Private Events</li><li>Design &amp; Production</li><li>Planning &amp; Management</li></ul>
+              <span class="hp-link">All event services &#8594;</span>
+            </a>
+            <a class="hp-card" href="https://reaganevents.com/all-destination-weddings" target="_blank" rel="noopener">
+              <img src="images/rea-home-weddings.jpg" alt="Aerial view of a yellow lakeside villa in Italy with formal gardens and a long table set for dinner" width="1024" height="767">
+              <span class="hp-num">02</span>
+              <h3>Weddings</h3>
+              <p>Full-service destination weddings across the U.S. and Italy.</p>
+              <ul><li>U.S. Weddings</li><li>Charleston</li><li>Kiawah Island</li><li>Italy</li></ul>
+              <span class="hp-link">All wedding services &#8594;</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="hp-reviews" data-slider aria-roledescription="carousel" aria-label="Client reviews">
+          <p class="ep-meta">Reviews</p>
+          <span class="hp-qmark" aria-hidden="true">&#8220;</span>
+          <div class="hp-slides" aria-live="polite">
+            <blockquote class="hp-slide is-on"><p>We can’t say enough great things about Reagan Events. Reagan and her team turned what could have been a stressful experience into a fun one.</p><cite>Nikki Haley</cite></blockquote>
+            <blockquote class="hp-slide"><p>Our wedding was a 4 day event with 220+ people. Every space was designed perfectly, and the logistics were managed smoothly.</p><cite>Carly Yormak</cite></blockquote>
+            <blockquote class="hp-slide"><p>We had big dreams and some lofty goals with the design of our spaces, and Reagan went above and beyond to accommodate all requests and exceed every expectation, making no request too large to bring to life or too small to make unique and special.</p><cite>Miranda Groeschell</cite></blockquote>
+            <blockquote class="hp-slide"><p>They have all the best connections with vendors, the experience, and unmatched taste to craft truly next level events. It was equal parts elegant and a freakin’ blast.</p><cite>Brittany Tyler</cite></blockquote>
+          </div>
+          <div class="hp-controls">
+            <button type="button" data-prev aria-label="Previous review">&#8592;</button>
+            <span data-count>01 / 04</span>
+            <button type="button" data-next aria-label="Next review">&#8594;</button>
+          </div>
+          <span class="hp-link">All reviews &#8594;</span>
+        </section>
+
+        <section class="hp-pods">
+          <div class="hp-head">
+            <div><p class="ep-meta">Wine &amp; Dine Me</p><h2>Latest Episodes</h2></div>
+            <a class="hp-link" href="https://reaganevents.com/wine-dine-me-podcast" target="_blank" rel="noopener">All episodes &#8594;</a>
+          </div>
+          <div class="hp-pod-grid">
+            <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/rachael-johanson" target="_blank" rel="noopener"><img src="images/rea-pod-rachael-johanson.jpg" alt="Rachael Johanson" width="330" height="330"><span class="ep-meta">September 21, 2026</span><h3>Rachael Johanson on Positioning, Pricing &amp; the Velvet Rope</h3><span class="hp-listen">Listen &#8594;</span></a>
+            <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/jordan-khan" target="_blank" rel="noopener"><img src="images/rea-pod-jordan-kahn.jpg" alt="Jordan Kahn" width="330" height="330"><span class="ep-meta">September 1, 2026</span><h3>Jordan Kahn on Scaling, Standards &amp; Wedding Entertainment</h3><span class="hp-listen">Listen &#8594;</span></a>
+            <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/alison-hotchkiss" target="_blank" rel="noopener"><img src="images/rea-pod-alison-hotchkiss.jpg" alt="Alison Hotchkiss" width="330" height="330"><span class="ep-meta">August 14, 2026</span><h3>Alison Hotchkiss on Building an Event Business That Lasts</h3><span class="hp-listen">Listen &#8594;</span></a>
+            <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/eventdox" target="_blank" rel="noopener"><img src="images/rea-pod-eventdox.jpg" alt="Julie Livingston and Caroline Brown" width="330" height="330"><span class="ep-meta">June 1, 2026</span><h3>Concierge Event Medicine for High-Touch Weddings</h3><span class="hp-listen">Listen &#8594;</span></a>
+          </div>
+        </section>
+
+        <section class="hp-social" data-rail>
+          <div class="hp-head">
+            <div><p class="ep-meta">@reaganevents</p><h2>Follow Along</h2></div>
+            <div class="hp-controls"><button type="button" data-left aria-label="Scroll left">&#8592;</button><button type="button" data-right aria-label="Scroll right">&#8594;</button></div>
+          </div>
+          <div class="hp-rail">
+            <img src="images/rea-ig-boat.jpg" alt="" width="750" height="1030">
+            <img src="images/rea-ig-1.jpg" alt="" width="750" height="1000">
+            <img src="images/rea-ig-2.jpg" alt="" width="750" height="938">
+            <img src="images/rea-ig-3.jpg" alt="" width="750" height="938">
+            <img src="images/rea-ig-4.jpg" alt="" width="750" height="1000">
+            <img src="images/rea-ig-5.jpg" alt="" width="640" height="1136">
+            <img src="images/rea-ig-6.jpg" alt="" width="720" height="1280">
+          </div>
+          <a class="hp-btn" href="https://www.instagram.com/reaganevents/" target="_blank" rel="noopener">Follow on Instagram</a>
+        </section>
+
+        <footer class="hp-footer">
+          <div class="hp-foot-top">
+            <div class="hp-foot-brand">
+              <img src="images/rea-logo-stacked-white.png" alt="Reagan Events" width="1000" height="426">
+              <p>Hospitality,<br>Considered.</p>
+            </div>
+            <div class="hp-foot-list"><p class="ep-meta">What we do</p><span>All Event Services</span><span>All Wedding Services</span><span>Gallery</span><span>Reviews</span></div>
+            <div class="hp-foot-list"><p class="ep-meta">Read &amp; listen</p><span>Journal</span><span>Wine &amp; Dine Me</span><span>The Art of the Host</span><span>Press</span></div>
+            <div class="hp-foot-list"><p class="ep-meta">Studio</p><span>About</span><span>Our Team</span><span>Our Process</span><span>Inquire</span></div>
+          </div>
+          <div class="hp-foot-join">
+            <div><p class="ep-meta">Join the list</p></div>
+            <div class="ep-form" aria-hidden="true"><span>Email address</span><b>Subscribe</b></div>
+          </div>
+          <div class="hp-foot-base">
+            <span>Charleston, South Carolina</span>
+            <span>Instagram &nbsp; Spotify &nbsp; Substack</span>
+            <span>&copy; 2026 Reagan Events &nbsp;/&nbsp; Terms of Use &nbsp;/&nbsp; Privacy Policy</span>
+          </div>
+        </footer>
+      </div>
+    </figure>
+    <p class="fine">Scroll inside the frame to see the full page, and use the arrows to try the sliders. Bodoni Moda and Archivo stand in for the site's licensed fonts.</p>
+
+    <h4 class="sub">Section order</h4>
+    <ol class="steps">
+      <li><div><b>Hero</b><span>The full-width hero stays, with the homepage H1 over it and an Inquire button.</span></div></li>
+      <li><div><b>The Reagan Events Planning Experience</b><span>The heading and intro paragraph from /our-planning-process, word for word, linking to the full page.</span></div></li>
+      <li><div><b>What we do</b><span>Two large cards, Events first and Weddings second, each linking to its services page.</span></div></li>
+      <li><div><b>Reviews slider</b><span>Client quotes with Nikki Haley first, linking to Reviews.</span></div></li>
+      <li><div><b>Latest episodes</b><span>The four newest Wine &amp; Dine Me episodes, each linking to its page.</span></div></li>
+      <li><div><b>Instagram slider</b><span>Recent posts with a Follow on Instagram button.</span></div></li>
+      <li><div><b>New footer</b><span>Logo and positioning line, three link columns, the Join the List signup, social links and legal links.</span></div></li>
+    </ol>
+
+    <h4 class="sub">Headline</h4>
+    <p class="support">Today's H1 is <code>Destination Weddings &amp; Events | U.S. &amp; Italy</code>. Reorder it to lead with events. For example:</p>
+    <p class="example">Luxury Events &amp; Destination Weddings</p>
+    <p class="fine">"Events" and "destination weddings" stay in the headline. "U.S." and "Italy" move to the homepage page title and meta description, so those searches still find the page.</p>
+
+    <details class="more">
+      <summary>Hero video brief</summary>
+      <div class="more-body">
+        <dl class="rows">
+          <dt>Goal</dt><dd>A brand or corporate client sees their kind of event in the first five seconds.</dd>
+          <dt>Content</dt><dd>Brand activations, corporate dinners and private celebrations. Rooms before guests arrive, set details, lighting changes, the team at work, Reagan directing. No couples or bridal details.</dd>
+          <dt>Privacy</dt><dd>No guests' faces. Brand names appear only where the client has approved it.</dd>
+          <dt>Pacing</dt><dd>Six to eight clips of three to four seconds each, slow camera movement, 20 to 30 seconds total. Looping and muted, with no text in the video.</dd>
+          <dt>Look</dt><dd>A warm grade in cream, antique gold, oxblood and deep green.</dd>
+          <dt>Phones</dt><dd>Keep the subject centered so it holds up in a vertical crop. Keep the file light, and check load time on a phone before launch.</dd>
+          <dt>Fallback</dt><dd>Until footage is ready, use one still from the corporate events gallery.</dd>
+        </dl>
+      </div>
+    </details>
+    <div class="needs"><p><strong>Needed from your team</strong>A list of the brand, corporate and private event video you have, including any footage from the October 18 setup at Lowndes Grove.</p></div>
+  </article>
+
+  <article class="page" id="event-services">
+    <h3>Event Services</h3>
+    <span class="url">/services</span>
+    <p class="decision">The hidden /services page becomes the Event Services page.</p>
+    <p class="support">The page exists but has no H1 or meta description, and Google has still shown it 3,961 times. Its two service lists already describe event work, so it keeps its URL and focuses on events only.</p>
+    <ol class="steps">
+      <li><div><b>H1 and intro</b><span>One H1 naming luxury event planning and production.</span></div></li>
+      <li><div><b>Event types</b><span>Brand, Corporate and Private Events, each linking to its existing page.</span></div></li>
+      <li><div><b>How we work</b><span>The two lists already on the page, Design &amp; Production and Planning &amp; Management, kept word for word and linked to their pages.</span></div></li>
+      <li><div><b>Common questions</b><span>Two or three short answers that link to the FAQ page from the Kickoff Strategy.</span></div></li>
+      <li><div><b>Planning a wedding?</b><span>One quiet link to Wedding Services.</span></div></li>
+      <li><div><b>Inquire</b><span>The same closing band as the homepage.</span></div></li>
+    </ol>
+    <p class="fine">Keep this page a short overview. Detail about each event type stays on its own page, so the pages support each other in search instead of competing.</p>
+    <div class="needs"><p><strong>Needed from your team</strong>The intro opens with "multi-day wedding weekends and destination events." Reword it for brand, corporate and private events.</p></div>
+  </article>
+
+  <article class="page" id="wedding-services">
+    <h3>Wedding Services</h3>
+    <span class="url">/all-destination-weddings</span>
+    <p class="decision">The existing All Weddings page becomes Wedding Services.</p>
+    <p class="support">It already covers full-service planning, itineraries, venues and vendors, logistics, design, approach and an FAQ, so it stays as it is.</p>
+    <ol class="steps">
+      <li><div><b>Menu label</b><span>All Wedding Services. The URL and copy stay the same.</span></div></li>
+      <li><div><b>Destinations</b><span>Links near the top to U.S., Charleston, Kiawah Island and Italy Weddings.</span></div></li>
+      <li><div><b>Planning an event?</b><span>One quiet link to Event Services.</span></div></li>
+    </ol>
+  </article>
+
+  <article class="page" id="gallery">
+    <h3>Gallery</h3>
+    <span class="url">/destination-wedding-event-portfolio</span>
+    <p class="decision">Portfolio becomes Gallery, with the corporate and private galleries in front.</p>
+    <p class="support">Google has shown this page 2,445 times with no clicks, likely because its title reads "Destination Weddings Portfolio."</p>
+    <ol class="steps">
+      <li><div><b>Menu label</b><span>Portfolio becomes Gallery. The URL stays the same.</span></div></li>
+      <li><div><b>Tile order</b><span>Corporate &amp; Brand, Private Parties, Destination Weddings, U.S. Weddings.</span></div></li>
+      <li><div><b>H1 and page title</b><span>Name events first and keep "destination weddings." For example, "Event &amp; Wedding Design Portfolio by Reagan Events."</span></div></li>
+      <li><div><b>Curate</b><span>The corporate and private galleries hold about 50 images each. Cut them to the strongest, with one hero image per event.</span></div></li>
+      <li><div><b>Captions and alt text</b><span>Label each event by type and place, not by client name, unless the client approves. Follow the image naming guide.</span></div></li>
+    </ol>
+  </article>
+
+  <article class="page" id="about">
+    <h3>About</h3>
+    <span class="url">/about-reagan-events</span>
+    <p class="decision">One About page in the main menu, no longer filed under Weddings.</p>
+    <ol class="steps">
+      <li><div><b>Story</b><span>The existing copy stays.</span></div></li>
+      <li><div><b>Team</b><span>A clear link to /our-destination-planning-team, which stays live. It has earned 164 clicks, the most of any page after the homepage and journal posts.</span></div></li>
+      <li><div><b>Process</b><span>A link to /our-planning-process.</span></div></li>
+      <li><div><b>Portraits of Reagan</b><span>Photos of Reagan herself, so visitors meet the person behind the work.</span></div></li>
+      <li><div><b>Proof</b><span>Links to Reviews and Press.</span></div></li>
+    </ol>
+    <p class="fine">Page title: "Luxury Wedding &amp; Event Planner" becomes "Luxury Event &amp; Wedding Planner," keeping both terms.</p>
+  </article>
+
+  <article class="page" id="reviews">
+    <h3>Reviews</h3>
+    <span class="url">/testimonials</span>
+    <p class="decision">The hidden testimonials page becomes Reviews, with event clients first, linked from the homepage, About and the footer.</p>
+    <p class="support">This page has the best click rate of any page with real traffic, at 4.7%.</p>
+    <ol class="steps">
+      <li><div><b>Event client quotes first</b><span>All four current quotes are from weddings. Add two or three from brand, corporate or private clients.</span></div></li>
+      <li><div><b>Keep Nikki Haley</b><span>It's the strongest proof on the site.</span></div></li>
+      <li><div><b>Fix the map pins</b><span>Each location links to an empty Google Maps search. Remove the link or point it to the real place.</span></div></li>
+      <li><div><b>Leave the quote URLs</b><span>Renaming the /fromclients pages would mean adding redirects, for little gain.</span></div></li>
+    </ol>
+    <div class="needs"><p><strong>Needed from your team</strong>Two or three quotes from brand, corporate or private event clients, approved for use on the site.</p></div>
+  </article>
+
+  <article class="page" id="journal">
+    <h3>Journal and Press</h3>
+    <p class="decision">The Journal, podcast and Substack move to the footer, and a new Press page joins the main menu.</p>
+    <ol class="steps">
+      <li><div><b>Journal</b><span>Stays at /journal. Posts bring in more search traffic than any service page, so no post URL changes.</span></div></li>
+      <li><div><b>Wine &amp; Dine Me</b><span>Stays at /wine-dine-me-podcast.</span></div></li>
+      <li><div><b>The Art of the Host</b><span>Links out to Substack.</span></div></li>
+      <li><div><b>Press</b><span>A new page at /press that leads with the Nikki Haley mention and lists publications.</span></div></li>
+    </ol>
+    <div class="needs"><p><strong>Needed from your team</strong>A list of press features and links for the Press page.</p></div>
+  </article>
+
+  <article class="page" id="podcast-episode">
+    <h3>Podcast Episode</h3>
+    <span class="url">/wine-dine-me-podcast/rachael-johanson</span>
+    <p class="decision">Each episode reads like a magazine feature, with the player up top and a clear next step at the end.</p>
+
+    <figure class="browser">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>reaganevents.com/wine-dine-me-podcast/rachael-johanson</span></div>
+      <div class="ep" tabindex="0" aria-label="Podcast episode page concept, scrollable">
+
+        <header class="ep-header">
+          <img class="ep-logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
+          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+        </header>
+
+        <section class="ep-hero">
+          <div class="ep-hero-text">
+            <p class="ep-meta">Wine &amp; Dine Me &nbsp;/&nbsp; September 21, 2026</p>
+            <h1 class="ep-title">The Psychology of the Velvet Rope</h1>
+            <p class="ep-dek">Attracting fewer, bigger, better clients, with strategist Rachael Johanson.</p>
+            <p class="ep-host"><span>Hosted by</span> Reagan Kerr Prechter</p>
+          </div>
+          <img class="ep-portrait" src="images/rachael-johanson-business-strategist-portrait.jpg" alt="Rachael Johanson in a copper silk dress in a wood-paneled room" width="1500" height="2250">
+        </section>
+
+        <section class="ep-player" aria-label="Episode player">
+          <span class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <div class="ep-track">
+            <p>Listen to the episode</p>
+            <div class="ep-wave" aria-hidden="true"></div>
+          </div>
+          <div class="ep-platforms"><span>Spotify</span><span>Apple Podcasts</span><span>YouTube</span></div>
+        </section>
+
+        <section class="ep-summary">
+          <div>
+            <h2 class="ep-label">In this episode</h2>
+            <ul class="ep-takeaways">
+              <li>Why the silver dollar market needs different marketing than the penny market</li>
+              <li>Deciding what you should be known for before deciding how to market it</li>
+              <li>The velvet rope, and making every touchpoint say the same thing</li>
+              <li>Press as a pricing tool, and relationships over retainers</li>
+              <li>Why people buy the founder first and the resume second</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="ep-label">Chapters</h2>
+            <ol class="ep-chapters">
+              <li>The Penny Market vs. the Silver Dollar Market</li>
+              <li>Positioning Comes Before Marketing</li>
+              <li>The Psychology of the Velvet Rope</li>
+              <li>Positioning, Press, Paid Speaking, and Partnerships</li>
+              <li>Selling When Budget Is Not the Primary Issue</li>
+              <li>People Buy You First and Your Resume Second</li>
+              <li>Your Personal Brand Is Already Saying Something</li>
+              <li>Your Best Work Is Already in Your Archive</li>
+              <li>Fewer Clients Can Create More Room</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="ep-body">
+          <p class="ep-lead">There is a point in business when doing more stops being the goal.</p>
+          <p>More clients. More inquiries. More content. More calls. More projects. More visibility.</p>
+          <p>If the goal is to move into the upper end of the market, the strategy has to change with it.</p>
+          <p>On this episode of <em>The Wine and Dine Me Podcast</em>, I sat down with Rachael Johanson, a strategist who works exclusively with female entrepreneurs building service-based businesses at the top of their markets. Her work centers on positioning, sales psychology, personal branding, press, partnerships, and helping women move toward fewer, better, larger projects.</p>
+
+          <h2 class="ep-h2"><span>01</span>The Penny Market vs. the Silver Dollar Market</h2>
+          <p>Rachael describes two very different ways to build a service business: the penny market and the silver dollar market.</p>
+          <p>There is nothing inherently wrong with either one. They simply require different business models.</p>
+          <p>The penny market is based on volume. You need more clients and more projects to reach your revenue goals. That means more onboarding, more calls, more events, more administrative work, and more simultaneous relationships to manage.</p>
+          <p>The silver dollar market operates differently. Instead of producing 30 events a year, perhaps you produce seven or ten. Those projects have larger budgets, longer timelines, greater creative scope, and often more complex expectations.</p>
+
+          <blockquote class="ep-quote">
+            <p>They're trying to get to the silver dollar market, but they're marketing themselves in the way that they did when they were in the penny market.</p>
+            <cite>Rachael Johanson</cite>
+          </blockquote>
+
+          <p>That landed with me because I could immediately see places in my own business where I had followed generally accepted marketing advice without stopping to ask whether the advice actually fit the market I wanted to serve.</p>
+
+          <h2 class="ep-h2"><span>02</span>Positioning Comes Before Marketing</h2>
+          <p>When Rachael begins working with a new client, she starts with one question: what should this woman be known for?</p>
+          <p>Not everything she is capable of doing. Not every client she could serve. What should someone specifically call her for?</p>
+        </section>
+
+        <figure class="ep-wide">
+          <img src="images/rachael-johanson-personal-brand-business-strategy.jpg" alt="Rachael Johanson seated on a sofa in a wood-paneled room" width="1500" height="1000">
+        </figure>
+
+        <section class="ep-body">
+          <blockquote class="ep-quote">
+            <p>There's so much beauty in niching down. Cause remember, you're not trying to work with like 30 couples a year. You're trying to work with seven.</p>
+            <cite>Rachael Johanson</cite>
+          </blockquote>
+          <p class="ep-more">Chapters 03 to 09 continue in the same layout.</p>
+        </section>
+
+        <section class="ep-guest">
+          <img src="images/rachael-johanson-sales-positioning-strategist.jpg" alt="Rachael Johanson in a cream sweater in a doorway" width="1500" height="2250">
+          <div>
+            <p class="ep-meta">The guest</p>
+            <h2 class="ep-guest-name">Rachael Johanson</h2>
+            <p>A strategist who works exclusively with female entrepreneurs building service-based businesses at the top of their markets, across positioning, sales psychology, personal branding, press and partnerships.</p>
+            <p class="ep-links"><span>rachaeljohanson.com &#8599;</span><span>Instagram &#8599;</span></p>
+          </div>
+        </section>
+
+        <section class="ep-closing">
+          <p>The clearer you are on who you're right for and who you're not right for, the more success you're gonna have.</p>
+          <cite>Rachael Johanson</cite>
+        </section>
+
+        <section class="ep-next">
+          <div class="ep-sub">
+            <p class="ep-meta">The Art of the Host</p>
+            <h2>Read more from Reagan on Substack</h2>
+            <div class="ep-form" aria-hidden="true"><span>Email address</span><b>Subscribe</b></div>
+          </div>
+          <div class="ep-related">
+            <p class="ep-meta">More from Wine &amp; Dine Me</p>
+            <ul>
+              <li>From Chaos to Clarity: How EOS Transformed Leadership, with Caroline Moluf</li>
+              <li>A Lifetime of Hospitality: Candace Hudnall and Hamby Catering</li>
+              <li>Inside Verry Robin &amp; Co. with Robin Verrier</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="ep-inquire">
+          <p>Planning an event?</p>
+          <span class="ep-btn">Inquire</span>
+        </section>
+
+        <footer class="ep-footer">
+          <span>What We Do</span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span><span>Journal</span><span>Wine &amp; Dine Me</span><span>The Art of the Host</span><span>Reviews</span>
+        </footer>
+      </div>
+    </figure>
+    <p class="fine">Scroll inside the frame to see the full page. Colors match the current journal pages. Bodoni Moda and Archivo stand in for the site's licensed fonts.</p>
+
+    <h4 class="sub">What changes</h4>
+    <ol class="steps">
+      <li><div><b>A real headline</b><span>The H1 names the topic, "The Psychology of the Velvet Rope," instead of only the guest's name.</span></div></li>
+      <li><div><b>Listen first</b><span>A player and Spotify, Apple Podcasts and YouTube links sit right under the headline.</span></div></li>
+      <li><div><b>Skimmable</b><span>An "In this episode" summary and a numbered chapter list before the full write-up.</span></div></li>
+      <li><div><b>Easier reading</b><span>A narrower text column, larger type, numbered chapter headings, and Rachael's best lines set as pull quotes.</span></div></li>
+      <li><div><b>Photography over graphics</b><span>Editorial portraits replace the text-on-image cover tile.</span></div></li>
+      <li><div><b>A guest card</b><span>Her photo, a short bio and her links in one place.</span></div></li>
+      <li><div><b>Somewhere to go next</b><span>The Substack signup, related episodes and a quiet Inquire link close the page.</span></div></li>
+    </ol>
+    <div class="needs"><p><strong>Needed from your team</strong>The episode's Spotify, Apple Podcasts and YouTube links, and approval of the guest bio.</p></div>
+  </article>
+
+  <article class="page" id="inquire">
+    <h3>Inquiry Path</h3>
+    <span class="url">/inquire</span>
+    <p class="decision">One form, where the first question sorts the lead.</p>
+    <p class="support">Today the Inquire About Events and Inquire About Weddings buttons open the same form.</p>
+    <ol class="steps">
+      <li><div><b>What are you planning?</b><span>Brand event, corporate event, private event or wedding.</span></div></li>
+      <li><div><b>Date or season, location, guest count</b><span>The basics for a first reply.</span></div></li>
+      <li><div><b>Planned investment</b><span>A range field that screens for fit.</span></div></li>
+      <li><div><b>How did you hear about us?</b><span>Confirms the referral source.</span></div></li>
+    </ol>
+    <p class="fine">The Contact conversion tracking in Code Injection needs to keep firing after the form changes. Send a test inquiry before launch.</p>
+  </article>
+
+  <div class="pager">
+    <a href="#short-version"><small>Previous</small><span>The Short Version</span></a>
+    <a href="#seo"><small>Next</small><span>SEO</span></a>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="block" id="seo" hidden>
+  <h2>SEO</h2>
+  <p class="decision">Same addresses, same ranking copy. Only the order and the labels change.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>Now</th><th>Change</th><th>Safeguard</th></tr></thead>
+      <tbody>
+        <tr><td>/</td><td>1,406 clicks</td><td>New hero video, H1 shortened to lead with events</td><td>The H1 stays as live text. "U.S." and "Italy" move to the page title and meta description. The video gets a poster image.</td></tr>
+        <tr><td>/services</td><td>Hidden, 3,961 impressions. Ranks for brand searches only.</td><td>Becomes Event Services</td><td>Same URL. Add one H1 and a meta description. Lists stay word for word.</td></tr>
+        <tr><td>/all-destination-weddings</td><td>In the Weddings menu, 5,892 impressions</td><td>Becomes Wedding Services</td><td>Same URL and copy. Add links to the four destination pages.</td></tr>
+        <tr><td>/about-reagan-events</td><td>Under Weddings, 5,757 impressions</td><td>Top-level About</td><td>Same URL and copy</td></tr>
+        <tr><td>/our-destination-planning-team</td><td>164 clicks</td><td>Leaves the menu</td><td>Stays live and linked from About. Keep the /team 301.</td></tr>
+        <tr><td>/our-planning-process</td><td>About menu and footer</td><td>Leaves the menu</td><td>Stays live, linked from About and /services</td></tr>
+        <tr><td>/weddings</td><td>302 to About, 1,789 impressions</td><td>301 to /all-destination-weddings</td><td>Change it in URL Mappings, after checking why it currently points to About</td></tr>
+        <tr><td>/destination-wedding-event-portfolio</td><td>2,445 impressions, 0 clicks</td><td>Labeled Gallery, events first</td><td>Same URL. Title and H1 keep "destination weddings."</td></tr>
+        <tr><td>/testimonials</td><td>Hidden, 4.7% click rate</td><td>Becomes Reviews</td><td>Same URL. Fix the map pin links.</td></tr>
+        <tr><td class="plain">Destination wedding pages (4)</td><td>In the Weddings menu</td><td>Move into What We Do</td><td>URLs and copy unchanged</td></tr>
+        <tr><td>/press</td><td>Doesn't exist (404)</td><td>New page</td><td>A new URL, so no redirect needed</td></tr>
+        <tr><td>/journal</td><td>In the main menu</td><td>Moves to the footer</td><td>Footer links are still followed by Google. Feature recent posts on the homepage or About so they keep strong internal links.</td></tr>
+        <tr><td class="plain">Journal posts</td><td>Top search traffic</td><td>None</td><td>Never rename a post URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 class="sub">Also in this pass</h4>
+  <ol class="steps">
+    <li><div><b>Schema</b><span>LocalBusiness on the homepage and Review on /testimonials, added per page through Code Injection.</span></div></li>
+    <li><div><b>Alt text</b><span>New and curated gallery images follow the image naming guide.</span></div></li>
+    <li><div><b>Duplicate journal URLs</b><span>Some posts live at both /journal/ and /wedding-planning-journal/. Note them for a separate check, outside this restructure.</span></div></li>
+  </ol>
+
+  <div class="pager"><a href="#site-structure"><small>Previous</small><span>Proposed Site Structure</span></a></div>
+</section>
+
+</main>
+</div>
+</div>
+
+<footer class="site-footer">
+  <img src="images/ldc-logo-circle-white.png" alt="Lindsay Dev Creative" width="60" height="60">
+</footer>
+
+<script>
+(function(root){
+  var blocks=[].slice.call(root.querySelectorAll('.block'));
+  var links=[].slice.call(root.querySelectorAll('.side-nav a'));
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(id,active){
+    active=active||id;
+    blocks.forEach(function(b){b.hidden=b.id!==id;});
+    links.forEach(function(a){
+      if(a.getAttribute('href')==='#'+active){
+        a.setAttribute('aria-current','true');
+        var bar=a.closest('ol');
+        if(bar.scrollWidth>bar.clientWidth) bar.scrollTo({left:a.parentNode.offsetLeft-bar.offsetLeft,behavior:reduce?'auto':'smooth'});
+      } else a.removeAttribute('aria-current');
+    });
+  }
+  function route(){
+    var id=decodeURIComponent(location.hash.slice(1));
+    var el=id?document.getElementById(id):null;
+    var block=el&&el.closest('.block');
+    var sub=el&&root.querySelector('.side-nav a[href="#'+el.id+'"]')?el.id:null;
+    show(block?block.id:'short-version',sub);
+    if(el&&el!==block&&block){
+      if(el.matches('details')) el.open=true;
+      el.scrollIntoView({block:'start'});
+    } else {
+      window.scrollTo(0,0);
+    }
+  }
+  window.addEventListener('hashchange',route);
+  window.addEventListener('load',function(){ if(!location.hash||document.getElementById(decodeURIComponent(location.hash.slice(1)))&&document.getElementById(decodeURIComponent(location.hash.slice(1))).classList.contains('block')) window.scrollTo(0,0); });
+  route();
+})(document.getElementById('siteplan'));
+
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){[].slice.call(document.querySelectorAll('.hp-hero video,.site-mock video')).forEach(function(v){v.removeAttribute('autoplay');v.pause();});}
+  [].slice.call(document.querySelectorAll('.hp [data-slider]')).forEach(function(box){
+    var slides=[].slice.call(box.querySelectorAll('.hp-slide')),i=0,count=box.querySelector('[data-count]');
+    function pad(n){return ('0'+n).slice(-2);}
+    function go(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('is-on',k===i);});count.textContent=pad(i+1)+' / '+pad(slides.length);}
+    box.querySelector('[data-prev]').addEventListener('click',function(){go(i-1);});
+    box.querySelector('[data-next]').addEventListener('click',function(){go(i+1);});
+  });
+  [].slice.call(document.querySelectorAll('.hp [data-rail]')).forEach(function(box){
+    var rail=box.querySelector('.hp-rail');
+    function step(d){rail.scrollBy({left:d*rail.clientWidth*.7,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+    box.querySelector('[data-left]').addEventListener('click',function(){step(-1);});
+    box.querySelector('[data-right]').addEventListener('click',function(){step(1);});
+  });
+})();
+</script>
+</body>
+</html>

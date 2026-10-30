@@ -323,10 +323,24 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
 .hp-hero h1{color:#FFFFFF;font-size:clamp(24px,3.6cqw,38px);text-shadow:0 1px 18px rgba(0,0,0,.35);line-height:1.15;letter-spacing:.06em;text-transform:uppercase;margin:0 0 26px}
 .hp-hero h1 span{display:block;font-family:var(--p-wide);font-stretch:125%;font-weight:300;font-size:12px;letter-spacing:.3em;margin-top:16px}
 
-/* Planning experience */
-.hp-intro{max-width:660px;margin:0 auto;padding:96px 32px;text-align:center}
-.hp-intro h2{margin:0 0 28px}
-.hp-intro p:not(.ep-meta){font-size:19px;line-height:1.75;margin-bottom:28px}
+/* Intro under the hero */
+.hp-lede{max-width:700px;margin:0 auto;padding:96px 32px 0;text-align:center}
+.hp-lede p{font-size:21px;line-height:1.65;margin:0}
+
+/* Planning experience: heading and link only */
+.hp-intro{max-width:660px;margin:0 auto;padding:72px 32px 96px;text-align:center}
+.hp-intro h2{margin:0 0 24px}
+
+/* Placeholders for items not yet final */
+.hp-ph{display:grid;place-items:center;text-align:center;border:1px dashed #A9A9A4;color:var(--p-muted);font-family:var(--p-mono);font-size:12px;line-height:1.5;padding:16px;margin:0}
+.hp-ph-note{font-family:var(--p-mono);font-size:12px;color:var(--p-muted);margin:0 0 16px}
+.hp-founder{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:96px 56px 0}
+.hp-ph-portrait{aspect-ratio:4/5}
+.hp-ph-line{min-height:120px;margin-bottom:24px}
+.hp-press{padding:0 56px 96px;text-align:center}
+.hp-press-label{font-family:var(--p-serif);font-style:italic;font-size:20px;margin:0 0 20px}
+.hp-press-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.hp-press-row .hp-ph{height:56px;padding:0}
 
 /* Services */
 .hp-services{padding:0 56px 96px}
@@ -391,7 +405,12 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
 @container (max-width:640px){
   .hp-hero{aspect-ratio:3/4}
   .hp-hero-text{padding:0 20px 40px}
-  .hp-intro{padding:64px 24px}
+  .hp-lede{padding:64px 24px 0}
+  .hp-lede p{font-size:18px}
+  .hp-intro{padding:48px 24px 64px}
+  .hp-founder{grid-template-columns:1fr;gap:24px;padding:64px 24px 0}
+  .hp-press{padding:0 24px 64px}
+  .hp-press-row{grid-template-columns:1fr 1fr}
   .hp-services,.hp-pods{padding-left:24px;padding-right:24px}
   .hp-cards{grid-template-columns:1fr;gap:56px}
   .hp-reviews{padding:64px 24px}
@@ -495,15 +514,17 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
 <section class="block" id="short-version">
   <h2>The Short <em>Version</em></h2>
   <p class="decision">Events lead, weddings follow, and no page Google already ranks gets removed.</p>
-  <p class="support">Today every path on the site leads with weddings: the hero video, the homepage headline, the portfolio title, and even the About page, which sits under Weddings. This plan changes the order things appear in, not the pages themselves.</p>
+  <p class="support">Today the site leads with weddings everywhere. This plan changes the order and the labels, not the pages.</p>
 
   <ul class="decisions">
-    <li><h3>A five-link menu</h3><p>What We Do, Gallery, About, Press, Inquire. Events come before weddings, and the Journal moves to the footer.</p></li>
+    <li><h3>A five-link menu</h3><p>What We Do, Gallery, About, Press, Inquire. Events come first.</p></li>
+    <li><h3>Press is a dropdown</h3><p>Press, the podcast, the Journal and The Art of the Host in one place.</p></li>
     <li><h3>Two services pages, no new URLs</h3><p>/services becomes Event Services. /all-destination-weddings becomes Wedding Services.</p></li>
-    <li><h3>A hero video that isn't about weddings</h3><p>A short cut of brand and corporate events replaces the wedding hero.</p></li>
-    <li><h3>One About page</h3><p>About Us comes out of the Weddings menu. Team and process stay live and are linked from About.</p></li>
-    <li><h3>Portfolio becomes Gallery</h3><p>Same URL. Corporate, brand and private galleries move to the front.</p></li>
-    <li><h3>One new page, one redirect fix</h3><p>/press is new, and the /weddings redirect gets corrected. Every other URL stays the same.</p></li>
+    <li><h3>A wider hero video</h3><p>For now, Morgan's Banner Edit: Italy, ceremony and event footage.</p></li>
+    <li><h3>A new podcast name</h3><p>Wine &amp; Dine Me becomes Good Taste, Great Business. Every URL stays.</p></li>
+    <li><h3>One About page</h3><p>Out of the Weddings menu. Uses the name Reagan Kerr, as the whole site does.</p></li>
+    <li><h3>Portfolio becomes Gallery</h3><p>Same URL. Events first.</p></li>
+    <li><h3>One new page, two redirects</h3><p>/press is new. /weddings and /italy get permanent redirects. Every other URL stays.</p></li>
   </ul>
 
 
@@ -535,35 +556,41 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
       </ul>
     </div>
     <div class="menu">
+      <h3>Press</h3>
+      <ul>
+        <li><span>Press <span class="tag">New</span></span> <small>/press</small></li>
+        <li>Good Taste, Great Business <small>/wine-dine-me-podcast</small></li>
+        <li>Journal <small>/journal</small></li>
+        <li>The Art of the Host <small>Substack</small></li>
+      </ul>
       <h3>Single links</h3>
       <ul>
         <li>Gallery <small>/destination-wedding-event-portfolio</small></li>
         <li>About <small>/about-reagan-events</small></li>
-        <li><span>Press <span class="tag">New</span></span> <small>/press</small></li>
         <li>Inquire <small>/inquire</small></li>
       </ul>
       <h3>Footer</h3>
       <ul>
         <li>Journal <small>/journal</small></li>
-        <li>Wine &amp; Dine Me <small>/wine-dine-me-podcast</small></li>
+        <li>Good Taste, Great Business <small>/wine-dine-me-podcast</small></li>
         <li>The Art of the Host <small>Substack</small></li>
         <li>Reviews <small>/testimonials</small></li>
       </ul>
     </div>
   </div>
-  <p class="fine">Squarespace dropdowns can't show group headings, so All Event Services and All Wedding Services open each group and link to its overview page.</p>
+  <p class="fine">Squarespace dropdowns can't show group headings, so All Event Services and All Wedding Services link to each group's overview page. Press is the first item in its own dropdown. Rob confirms the dropdown works in Squarespace.</p>
 
   <details class="more">
     <summary>What changes from today's menu</summary>
     <div class="more-body">
       <dl class="rows">
-        <dt>About menu (Team, Process)</dt><dd>One About link. Team and process are linked from the About page.</dd>
-        <dt>Weddings menu</dt><dd>Moves into What We Do, after events. About Us leaves the menu.</dd>
-        <dt>Events menu</dt><dd>The same five pages, now first in What We Do</dd>
-        <dt>Portfolio</dt><dd>Gallery</dd>
-        <dt>No reviews link</dt><dd>Reviews stays out of the menu. The existing /testimonials page is linked from the homepage, About and the footer.</dd>
-        <dt>Journal</dt><dd>Moves to the footer with Wine &amp; Dine Me and The Art of the Host. Press becomes its own menu link.</dd>
-        <dt>Footer SERVICES</dt><dd>Points to /services instead of /our-planning-process. Add JOURNAL, WINE &amp; DINE ME, THE ART OF THE HOST, REVIEWS and INSTAGRAM.</dd>
+        <dt>About menu</dt><dd>One About link. Team and Process are linked from the page.</dd>
+        <dt>Weddings menu</dt><dd>Moves into What We Do, after events.</dd>
+        <dt>Events menu</dt><dd>Same five pages, now first.</dd>
+        <dt>Portfolio</dt><dd>Renamed Gallery.</dd>
+        <dt>Journal</dt><dd>Moves into the Press dropdown. Also in the footer.</dd>
+        <dt>Reviews</dt><dd>Not in the menu. Linked from the homepage, About and the footer.</dd>
+        <dt>Footer</dt><dd>Services points to /services. Adds Journal, the podcast, The Art of the Host, Reviews and Instagram.</dd>
       </dl>
     </div>
   </details>
@@ -572,7 +599,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
     <div class="frame">
       <header>
         <img class="logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
-        <nav aria-label="Proposed main navigation mockup"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+        <nav aria-label="Proposed main navigation mockup"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Inquire</span></nav>
       </header>
       <div class="hero">
         <video class="bg" src="videos/rea-hero-banner.mp4" poster="images/rea-hero-banner-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
@@ -583,7 +610,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
   <article class="page" id="homepage">
     <h3>Homepage</h3>
     <span class="url">/</span>
-    <p class="decision">A magazine cover, not a sales page: the full-width hero, then the planning experience, services, reviews, podcast and Instagram.</p>
+    <p class="decision">A magazine cover, not a sales page. Less copy, with the detail one click in.</p>
 
     <figure class="browser">
       <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>reaganevents.com</span></div>
@@ -591,7 +618,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
 
         <header class="ep-header">
           <img class="ep-logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
-          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Inquire</span></nav>
         </header>
 
         <section class="hp-hero">
@@ -602,10 +629,12 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
           </div>
         </section>
 
+        <section class="hp-lede">
+          <p>Every extraordinary gathering begins with intention. As a luxury event planning and design studio, Reagan Events creates brand experiences, corporate events and private celebrations with thoughtful creative direction, meticulous planning and an instinct for hospitality. The result feels effortless to its guests and unforgettable to its hosts.</p>
+        </section>
+
         <section class="hp-intro">
-          <p class="ep-meta">Our process</p>
           <h2>The Reagan Events Planning Experience</h2>
-          <p>Every celebration begins with a story. At Reagan Events, our role as a luxury wedding planner and event producer is to transform that story into an extraordinary, seamless experience. Whether you’re wondering how to plan a wedding, what a complete wedding plan includes, or even how long does it take to plan a wedding or event, our process is designed to answer every question while elevating every detail.</p>
           <a class="hp-link" href="https://reaganevents.com/our-planning-process" target="_blank" rel="noopener">Our process &#8594;</a>
         </section>
 
@@ -616,7 +645,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
               <img src="images/rea-home-events.jpg" alt="Guests dancing under purple lighting at an evening event in a tent" width="1024" height="683">
               <span class="hp-num">01</span>
               <h3>Events</h3>
-              <p>Brand, corporate and private events, from creative direction through production.</p>
+              <p>Brand experiences, corporate gatherings and private celebrations, conceived with a host's instinct and produced with precision.</p>
               <ul><li>Brand Events</li><li>Corporate Events</li><li>Private Events</li><li>Design &amp; Production</li><li>Planning &amp; Management</li></ul>
               <span class="hp-link">All event services &#8594;</span>
             </a>
@@ -648,9 +677,18 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
           <span class="hp-link">All reviews &#8594;</span>
         </section>
 
+        <section class="hp-founder" aria-label="Founder moment, placeholder">
+          <div class="hp-ph hp-ph-portrait">Portrait of Reagan Kerr<br>from E's October gallery</div>
+          <div>
+            <p class="hp-ph-note">Placeholder · pending final portraits</p>
+            <p class="hp-ph hp-ph-line">One line about Reagan<br>New copy, needs Reagan's approval</p>
+            <span class="hp-link">About Reagan &#8594;</span>
+          </div>
+        </section>
+
         <section class="hp-pods">
           <div class="hp-head">
-            <div><p class="ep-meta">Wine &amp; Dine Me</p><h2>Latest Episodes</h2></div>
+            <div><p class="ep-meta">Good Taste, Great Business</p><h2>Latest Episodes</h2></div>
             <a class="hp-link" href="https://reaganevents.com/wine-dine-me-podcast" target="_blank" rel="noopener">All episodes &#8594;</a>
           </div>
           <div class="hp-pod-grid">
@@ -659,6 +697,12 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
             <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/alison-hotchkiss" target="_blank" rel="noopener"><img src="images/rea-pod-alison-hotchkiss.jpg" alt="Alison Hotchkiss" width="330" height="330"><span class="ep-meta">August 14, 2026</span><h3>Alison Hotchkiss on Building an Event Business That Lasts</h3><span class="hp-listen">Listen &#8594;</span></a>
             <a class="hp-pod" href="https://reaganevents.com/wine-dine-me-podcast/eventdox" target="_blank" rel="noopener"><img src="images/rea-pod-eventdox.jpg" alt="Julie Livingston and Caroline Brown" width="330" height="330"><span class="ep-meta">June 1, 2026</span><h3>Concierge Event Medicine for High-Touch Weddings</h3><span class="hp-listen">Listen &#8594;</span></a>
           </div>
+        </section>
+
+        <section class="hp-press" aria-label="As featured in, placeholder">
+          <p class="hp-press-label">As featured in</p>
+          <div class="hp-press-row"><span class="hp-ph">Publication</span><span class="hp-ph">Publication</span><span class="hp-ph">Publication</span><span class="hp-ph">Publication</span></div>
+          <p class="hp-ph-note">Placeholder · pending the press list</p>
         </section>
 
         <section class="hp-social" data-rail>
@@ -685,7 +729,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
               <p>Hospitality,<br>Considered.</p>
             </div>
             <div class="hp-foot-list"><p class="ep-meta">What we do</p><span>All Event Services</span><span>All Wedding Services</span><span>Gallery</span><span>Reviews</span></div>
-            <div class="hp-foot-list"><p class="ep-meta">Read &amp; listen</p><span>Journal</span><span>Wine &amp; Dine Me</span><span>The Art of the Host</span><span>Press</span></div>
+            <div class="hp-foot-list"><p class="ep-meta">Read &amp; listen</p><span>Journal</span><span>Good Taste, Great Business</span><span>The Art of the Host</span><span>Press</span></div>
             <div class="hp-foot-list"><p class="ep-meta">Studio</p><span>About</span><span>Our Team</span><span>Our Process</span><span>Inquire</span></div>
           </div>
           <div class="hp-foot-join">
@@ -700,55 +744,57 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
         </footer>
       </div>
     </figure>
-    <p class="fine">Scroll inside the frame to see the full page, and use the arrows to try the sliders. Bodoni Moda and Archivo stand in for the site's licensed fonts.</p>
+    <p class="fine">Scroll inside the frame to see the full page, and use the arrows to try the sliders. Dashed boxes are placeholders. Bodoni Moda and Archivo stand in for the site's licensed fonts.</p>
 
     <h4 class="sub">Section order</h4>
     <ol class="steps">
-      <li><div><b>Hero</b><span>The full-width hero stays, with the homepage H1 over it and an Inquire button.</span></div></li>
-      <li><div><b>The Reagan Events Planning Experience</b><span>The heading and intro paragraph from /our-planning-process, word for word, linking to the full page.</span></div></li>
-      <li><div><b>What we do</b><span>Two large cards, Events first and Weddings second, each linking to its services page.</span></div></li>
-      <li><div><b>Reviews slider</b><span>Client quotes with Nikki Haley first, linking to Reviews.</span></div></li>
-      <li><div><b>Latest episodes</b><span>The four newest Wine &amp; Dine Me episodes, each linking to its page.</span></div></li>
-      <li><div><b>Instagram slider</b><span>Recent posts with a Follow on Instagram button.</span></div></li>
-      <li><div><b>New footer</b><span>Logo and positioning line, three link columns, the Join the List signup, social links and legal links.</span></div></li>
+      <li><div><b>Hero</b><span>Video, the H1 and an Inquire button.</span></div></li>
+      <li><div><b>Intro</b><span>A short paragraph that leads with events. New copy, pending Reagan's approval.</span></div></li>
+      <li><div><b>The Reagan Events Planning Experience</b><span>Heading and link only. The full paragraph stays on /our-planning-process.</span></div></li>
+      <li><div><b>What we do</b><span>Events card first, then Weddings. The Events line is new copy, pending Reagan's approval.</span></div></li>
+      <li><div><b>Reviews</b><span>Client quotes, Nikki Haley first.</span></div></li>
+      <li><div><b>Founder moment</b><span>A portrait of Reagan and one line. Placeholder until the portraits are final.</span></div></li>
+      <li><div><b>Latest episodes</b><span>The four newest Good Taste, Great Business episodes.</span></div></li>
+      <li><div><b>As featured in</b><span>Publication names. Placeholder until the press list exists.</span></div></li>
+      <li><div><b>Instagram</b><span>Recent posts and a Follow button.</span></div></li>
+      <li><div><b>Footer</b><span>Logo, Hospitality, Considered., three link columns and the signup.</span></div></li>
     </ol>
+    <p class="fine">Copy that leaves the homepage isn't deleted. It moves to Event Services, Wedding Services or About.</p>
 
-    <h4 class="sub">Headline</h4>
-    <p class="support">Today's H1 is <code>Destination Weddings &amp; Events | U.S. &amp; Italy</code>. Reorder it to lead with events. For example:</p>
+    <h4 class="sub">Headline and search title</h4>
+    <p class="support">Today's H1 is <code>Destination Weddings &amp; Events | U.S. &amp; Italy</code>. The new H1 leads with events:</p>
     <p class="example">Luxury Events &amp; Destination Weddings</p>
-    <p class="fine">"Events" and "destination weddings" stay in the headline. "U.S." and "Italy" move to the homepage page title and meta description, so those searches still find the page.</p>
+    <p class="support">New page title:</p>
+    <p class="example">Luxury Event Planning &amp; Production | Reagan Events</p>
+    <p class="fine">"U.S." and "Italy" go in the meta description, so those searches still find the page.</p>
 
     <details class="more">
-      <summary>Hero video brief</summary>
+      <summary>Hero video</summary>
       <div class="more-body">
         <dl class="rows">
-          <dt>Goal</dt><dd>A brand or corporate client sees their kind of event in the first five seconds.</dd>
-          <dt>Content</dt><dd>Brand activations, corporate dinners and private celebrations. Rooms before guests arrive, set details, lighting changes, the team at work, Reagan directing. No couples or bridal details.</dd>
-          <dt>Privacy</dt><dd>No guests' faces. Brand names appear only where the client has approved it.</dd>
-          <dt>Pacing</dt><dd>Six to eight clips of three to four seconds each, slow camera movement, 20 to 30 seconds total. Looping and muted, with no text in the video.</dd>
-          <dt>Look</dt><dd>A warm grade in cream, antique gold, oxblood and deep green.</dd>
-          <dt>Phones</dt><dd>Keep the subject centered so it holds up in a vertical crop. Keep the file light, and check load time on a phone before launch.</dd>
-          <dt>Fallback</dt><dd>Until footage is ready, use one still from the corporate events gallery.</dd>
+          <dt>For now</dt><dd>Morgan's Banner Edit, 10.9 seconds: Italy, ceremony and event footage. Rob uploads the 1080p file with a poster image.</dd>
+          <dt>Later, optional</dt><dd>A purpose-made film of Reagan at work, 20 to 30 seconds, muted and looping. Possibly shot at an event she's already producing.</dd>
+          <dt>Privacy</dt><dd>No guests' faces. Client brands only with approval.</dd>
         </dl>
       </div>
     </details>
-    <div class="needs"><p><strong>Needed from your team</strong>A list of the brand, corporate and private event video you have, including any footage from the October 18 setup at Lowndes Grove.</p></div>
   </article>
 
   <article class="page" id="event-services">
     <h3>Event Services</h3>
     <span class="url">/services</span>
     <p class="decision">The hidden /services page becomes the Event Services page.</p>
-    <p class="support">The page exists but has no H1 or meta description, and Google has still shown it 3,961 times. Its two service lists already describe event work, so it keeps its URL and focuses on events only.</p>
+    <p class="support">It has no H1 or meta description, yet Google has shown it 3,961 times. Same URL, events only.</p>
     <ol class="steps">
       <li><div><b>H1 and intro</b><span>One H1 naming luxury event planning and production.</span></div></li>
-      <li><div><b>Event types</b><span>Brand, Corporate and Private Events, each linking to its existing page.</span></div></li>
-      <li><div><b>How we work</b><span>The two lists already on the page, Design &amp; Production and Planning &amp; Management, kept word for word and linked to their pages.</span></div></li>
+      <li><div><b>Event types</b><span>Brand, Corporate and Private Events, each linking to its page.</span></div></li>
+      <li><div><b>How we work</b><span>The three event lists, word for word: Design &amp; Production, Planning &amp; Management, and Corporate &amp; Brand Event Production.</span></div></li>
+      <li><div><b>Destination Planning list</b><span>Moves to Wedding Services.</span></div></li>
       <li><div><b>Common questions</b><span>Two or three short answers that link to the FAQ page from the Kickoff Strategy.</span></div></li>
       <li><div><b>Planning a wedding?</b><span>One quiet link to Wedding Services.</span></div></li>
       <li><div><b>Inquire</b><span>The same closing band as the homepage.</span></div></li>
     </ol>
-    <p class="fine">Keep this page a short overview. Detail about each event type stays on its own page, so the pages support each other in search instead of competing.</p>
+    <p class="fine">Keep it a short overview. Detail stays on each event page, so the pages don't compete in search.</p>
     <div class="needs"><p><strong>Needed from your team</strong>The intro opens with "multi-day wedding weekends and destination events." Reword it for brand, corporate and private events.</p></div>
   </article>
 
@@ -756,10 +802,12 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
     <h3>Wedding Services</h3>
     <span class="url">/all-destination-weddings</span>
     <p class="decision">The existing All Weddings page becomes Wedding Services.</p>
-    <p class="support">It already covers full-service planning, itineraries, venues and vendors, logistics, design, approach and an FAQ, so it stays as it is.</p>
+    <p class="support">Same URL. The existing copy stays, and it takes three blocks of existing copy from other pages.</p>
     <ol class="steps">
-      <li><div><b>Menu label</b><span>All Wedding Services. The URL and copy stay the same.</span></div></li>
-      <li><div><b>Destinations</b><span>Links near the top to U.S., Charleston, Kiawah Island and Italy Weddings.</span></div></li>
+      <li><div><b>Menu label</b><span>All Wedding Services.</span></div></li>
+      <li><div><b>Celebrations Rooted in Storytelling</b><span>Moves from the homepage, near the top after the intro. Name corrected to Reagan Kerr.</span></div></li>
+      <li><div><b>Destinations</b><span>Links to U.S., Charleston, Kiawah Island and Italy Weddings. The U.S. and Italy lines from today's homepage go here.</span></div></li>
+      <li><div><b>Destination Planning list</b><span>Moves from /services.</span></div></li>
       <li><div><b>Planning an event?</b><span>One quiet link to Event Services.</span></div></li>
     </ol>
   </article>
@@ -783,20 +831,20 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
     <span class="url">/about-reagan-events</span>
     <p class="decision">One About page in the main menu, no longer filed under Weddings.</p>
     <ol class="steps">
-      <li><div><b>Story</b><span>The existing copy stays.</span></div></li>
-      <li><div><b>Team</b><span>A clear link to /our-destination-planning-team, which stays live. It has earned 164 clicks, the most of any page after the homepage and journal posts.</span></div></li>
+      <li><div><b>Story</b><span>The existing copy stays. "Reagan Prechter" becomes "Reagan Kerr."</span></div></li>
+      <li><div><b>Team</b><span>A link to /our-destination-planning-team, which stays live. It has 164 clicks.</span></div></li>
       <li><div><b>Process</b><span>A link to /our-planning-process.</span></div></li>
       <li><div><b>Portraits of Reagan</b><span>Photos of Reagan herself, so visitors meet the person behind the work.</span></div></li>
       <li><div><b>Proof</b><span>Links to Reviews and Press.</span></div></li>
     </ol>
-    <p class="fine">Page title: "Luxury Wedding &amp; Event Planner" becomes "Luxury Event &amp; Wedding Planner," keeping both terms.</p>
+    <p class="fine">Page title: "Luxury Wedding &amp; Event Planner" becomes "Luxury Event &amp; Wedding Planner."</p>
   </article>
 
   <article class="page" id="reviews">
     <h3>Reviews</h3>
     <span class="url">/testimonials</span>
-    <p class="decision">The hidden testimonials page becomes Reviews, with event clients first, linked from the homepage, About and the footer.</p>
-    <p class="support">This page has the best click rate of any page with real traffic, at 4.7%.</p>
+    <p class="decision">The hidden testimonials page becomes Reviews, with event clients first.</p>
+    <p class="support">Linked from the homepage, About and the footer. It has the best click rate on the site, at 4.7%.</p>
     <ol class="steps">
       <li><div><b>Event client quotes first</b><span>All four current quotes are from weddings. Add two or three from brand, corporate or private clients.</span></div></li>
       <li><div><b>Keep Nikki Haley</b><span>It's the strongest proof on the site.</span></div></li>
@@ -807,13 +855,13 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
   </article>
 
   <article class="page" id="journal">
-    <h3>Journal and Press</h3>
-    <p class="decision">The Journal, podcast and Substack move to the footer, and a new Press page joins the main menu.</p>
+    <h3>Press, Podcast and Journal</h3>
+    <p class="decision">One Press dropdown holds Reagan's authority: press, the podcast, the Journal and her Substack.</p>
     <ol class="steps">
-      <li><div><b>Journal</b><span>Stays at /journal. Posts bring in more search traffic than any service page, so no post URL changes.</span></div></li>
-      <li><div><b>Wine &amp; Dine Me</b><span>Stays at /wine-dine-me-podcast.</span></div></li>
+      <li><div><b>Press</b><span>A new page at /press. Leads with the Nikki Haley mention and lists publications.</span></div></li>
+      <li><div><b>Good Taste, Great Business</b><span>The new podcast name. The show and every episode keep their URLs. One "formerly Wine &amp; Dine Me" line, pending Reagan's approval.</span></div></li>
+      <li><div><b>Journal</b><span>Stays at /journal. Posts bring in nearly half of all Google visits, so no post URL changes. Also in the footer.</span></div></li>
       <li><div><b>The Art of the Host</b><span>Links out to Substack.</span></div></li>
-      <li><div><b>Press</b><span>A new page at /press that leads with the Nikki Haley mention and lists publications.</span></div></li>
     </ol>
     <div class="needs"><p><strong>Needed from your team</strong>A list of press features and links for the Press page.</p></div>
   </article>
@@ -822,6 +870,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
     <h3>Podcast Episode</h3>
     <span class="url">/wine-dine-me-podcast/rachael-johanson</span>
     <p class="decision">Each episode reads like a magazine feature, with the player up top and a clear next step at the end.</p>
+    <p class="support">Shown under the new name, Good Taste, Great Business, hosted by Reagan Kerr. The URL stays the same.</p>
 
     <figure class="browser">
       <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>reaganevents.com/wine-dine-me-podcast/rachael-johanson</span></div>
@@ -829,15 +878,15 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
 
         <header class="ep-header">
           <img class="ep-logo" src="images/rea-logo-stacked-black.png" alt="Reagan Events" width="1000" height="426">
-          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span></nav>
+          <nav aria-label="Concept site navigation"><span>What We Do<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Gallery</span><span>About</span><span>Press<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></span><span>Inquire</span></nav>
         </header>
 
         <section class="ep-hero">
           <div class="ep-hero-text">
-            <p class="ep-meta">Wine &amp; Dine Me &nbsp;/&nbsp; September 21, 2026</p>
+            <p class="ep-meta">Good Taste, Great Business &nbsp;/&nbsp; September 21, 2026</p>
             <h1 class="ep-title">The Psychology of the Velvet Rope</h1>
             <p class="ep-dek">Attracting fewer, bigger, better clients, with strategist Rachael Johanson.</p>
-            <p class="ep-host"><span>Hosted by</span> Reagan Kerr Prechter</p>
+            <p class="ep-host"><span>Hosted by</span> Reagan Kerr</p>
           </div>
           <img class="ep-portrait" src="images/rachael-johanson-business-strategist-portrait.jpg" alt="Rachael Johanson in a copper silk dress in a wood-paneled room" width="1500" height="2250">
         </section>
@@ -882,7 +931,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
           <p class="ep-lead">There is a point in business when doing more stops being the goal.</p>
           <p>More clients. More inquiries. More content. More calls. More projects. More visibility.</p>
           <p>If the goal is to move into the upper end of the market, the strategy has to change with it.</p>
-          <p>On this episode of <em>The Wine and Dine Me Podcast</em>, I sat down with Rachael Johanson, a strategist who works exclusively with female entrepreneurs building service-based businesses at the top of their markets. Her work centers on positioning, sales psychology, personal branding, press, partnerships, and helping women move toward fewer, better, larger projects.</p>
+          <p>On this episode of <em>Good Taste, Great Business</em>, I sat down with Rachael Johanson, a strategist who works exclusively with female entrepreneurs building service-based businesses at the top of their markets. Her work centers on positioning, sales psychology, personal branding, press, partnerships, and helping women move toward fewer, better, larger projects.</p>
 
           <h2 class="ep-h2"><span>01</span>The Penny Market vs. the Silver Dollar Market</h2>
           <p>Rachael describes two very different ways to build a service business: the penny market and the silver dollar market.</p>
@@ -936,7 +985,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
             <div class="ep-form" aria-hidden="true"><span>Email address</span><b>Subscribe</b></div>
           </div>
           <div class="ep-related">
-            <p class="ep-meta">More from Wine &amp; Dine Me</p>
+            <p class="ep-meta">More from Good Taste, Great Business</p>
             <ul>
               <li>From Chaos to Clarity: How EOS Transformed Leadership, with Caroline Moluf</li>
               <li>A Lifetime of Hospitality: Candace Hudnall and Hamby Catering</li>
@@ -951,7 +1000,7 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
         </section>
 
         <footer class="ep-footer">
-          <span>What We Do</span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span><span>Journal</span><span>Wine &amp; Dine Me</span><span>The Art of the Host</span><span>Reviews</span>
+          <span>What We Do</span><span>Gallery</span><span>About</span><span>Press</span><span>Inquire</span><span>Journal</span><span>Good Taste, Great Business</span><span>The Art of the Host</span><span>Reviews</span>
         </footer>
       </div>
     </figure>
@@ -998,18 +1047,20 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
     <table>
       <thead><tr><th>Page</th><th>Now</th><th>Change</th><th>Safeguard</th></tr></thead>
       <tbody>
-        <tr><td>/</td><td>1,406 clicks</td><td>New hero video, H1 shortened to lead with events</td><td>The H1 stays as live text. "U.S." and "Italy" move to the page title and meta description. The video gets a poster image.</td></tr>
-        <tr><td>/services</td><td>Hidden, 3,961 impressions. Ranks for brand searches only.</td><td>Becomes Event Services</td><td>Same URL. Add one H1 and a meta description. Lists stay word for word.</td></tr>
-        <tr><td>/all-destination-weddings</td><td>In the Weddings menu, 5,892 impressions</td><td>Becomes Wedding Services</td><td>Same URL and copy. Add links to the four destination pages.</td></tr>
-        <tr><td>/about-reagan-events</td><td>Under Weddings, 5,757 impressions</td><td>Top-level About</td><td>Same URL and copy</td></tr>
+        <tr><td>/</td><td>1,406 clicks</td><td>New hero, H1 leads with events, short new intro</td><td>H1 stays live text. New title: Luxury Event Planning &amp; Production | Reagan Events. "U.S." and "Italy" go in the meta description. Moved copy lands on interior pages.</td></tr>
+        <tr><td>/services</td><td>Hidden, 3,961 impressions</td><td>Becomes Event Services</td><td>Same URL. Add one H1 and a meta description. Event lists stay word for word.</td></tr>
+        <tr><td>/all-destination-weddings</td><td>In the Weddings menu, 5,892 impressions</td><td>Becomes Wedding Services</td><td>Same URL and copy. Adds destination links and copy moved from the homepage and /services.</td></tr>
+        <tr><td>/about-reagan-events</td><td>Under Weddings, 5,757 impressions</td><td>Top-level About</td><td>Same URL and copy. Name corrected to Reagan Kerr.</td></tr>
         <tr><td>/our-destination-planning-team</td><td>164 clicks</td><td>Leaves the menu</td><td>Stays live and linked from About. Keep the /team 301.</td></tr>
         <tr><td>/our-planning-process</td><td>About menu and footer</td><td>Leaves the menu</td><td>Stays live, linked from About and /services</td></tr>
-        <tr><td>/weddings</td><td>302 to About, 1,789 impressions</td><td>301 to /all-destination-weddings</td><td>Change it in URL Mappings, after checking why it currently points to About</td></tr>
+        <tr><td>/weddings</td><td>302 to About, 1,789 impressions</td><td>301 to /all-destination-weddings</td><td>Change it in URL Mappings, after checking why it points to About</td></tr>
+        <tr><td>/italy</td><td>Old Italy page, competes with the menu page (position 13.7 vs. 29.7)</td><td>301 to /italy-destination-weddings</td><td>Move any wording that's only on /italy first. The Italy film stays on the menu page.</td></tr>
         <tr><td>/destination-wedding-event-portfolio</td><td>2,445 impressions, 0 clicks</td><td>Labeled Gallery, events first</td><td>Same URL. Title and H1 keep "destination weddings."</td></tr>
         <tr><td>/testimonials</td><td>Hidden, 4.7% click rate</td><td>Becomes Reviews</td><td>Same URL. Fix the map pin links.</td></tr>
         <tr><td class="plain">Destination wedding pages (4)</td><td>In the Weddings menu</td><td>Move into What We Do</td><td>URLs and copy unchanged</td></tr>
         <tr><td>/press</td><td>Doesn't exist (404)</td><td>New page</td><td>A new URL, so no redirect needed</td></tr>
-        <tr><td>/journal</td><td>In the main menu</td><td>Moves to the footer</td><td>Footer links are still followed by Google. Feature recent posts on the homepage or About so they keep strong internal links.</td></tr>
+        <tr><td>/wine-dine-me-podcast</td><td>Podcast and every episode</td><td>Renamed Good Taste, Great Business. In the Press dropdown.</td><td>Same URLs for the show and every episode</td></tr>
+        <tr><td>/journal</td><td>In the main menu</td><td>Moves to the Press dropdown and the footer</td><td>Same URL. No redirect.</td></tr>
         <tr><td class="plain">Journal posts</td><td>Top search traffic</td><td>None</td><td>Never rename a post URL</td></tr>
       </tbody>
     </table>
@@ -1019,7 +1070,6 @@ td.plain{font-family:var(--sans);font-size:var(--text-small);white-space:normal}
   <ol class="steps">
     <li><div><b>Schema</b><span>LocalBusiness on the homepage and Review on /testimonials, added per page through Code Injection.</span></div></li>
     <li><div><b>Alt text</b><span>New and curated gallery images follow the image naming guide.</span></div></li>
-    <li><div><b>Duplicate journal URLs</b><span>Some posts live at both /journal/ and /wedding-planning-journal/. Note them for a separate check, outside this restructure.</span></div></li>
   </ol>
 
   <div class="pager"><a href="#site-structure"><small>Previous</small><span>Proposed Site Structure</span></a></div>
